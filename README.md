@@ -8,5 +8,5 @@ RPamisc is a package with miscellaneous functions that intend to make the R prog
 
 This package can be installed using devtools with the following:
 
-    devtools::install_github("Kmisc", "kevinushey")
+    devtools::install_github("RPamisc", "rparrish")
  
