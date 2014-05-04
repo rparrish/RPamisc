@@ -3,17 +3,14 @@
 \alias{edwFetch}
 \title{edwFetch}
 \usage{
-edwFetch(resource = "Phloston", schemaName = NULL, tableName = NULL,
-  colnames = FALSE, max = 10)
+edwFetch(resource = "Phloston", schema = NULL, table = NULL, max = 10)
 }
 \arguments{
 \item{resource}{- Alias for the database connection}
 
-\item{schemaName}{- desired schema}
+\item{schema}{- desired schema}
 
-\item{tableName}{- desired table}
-
-\item{colnames}{- desired columns}
+\item{table}{- desired table}
 
 \item{max}{= TOP n rows from the query results}
 }
