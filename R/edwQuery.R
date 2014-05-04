@@ -1,29 +1,37 @@
 #' edwquery
 #'
 #' queries EDW using windows credentials
-#' @param schema - name of the desired schema
-#' @param table_name - name of the desired table
-#' @param max - used to return the TOP n records - use a large number for all records
-#' @param fields - single string of field names separated by commas
-#' @param where - additional WHERE clauses
-#' @param order - additional ORDER BY clauses
-#' @param resource - Alias for the database connection
+#' @param schema name of the desired schema
+#' @param table_name name of the desired table
+#' @param max used to return the TOP n records - use a large number for all records
+#' @param fields single string of field names separated by commas
+#' @param where additional WHERE clauses
+#' @param order additional ORDER BY clauses
+#' @param resource Alias for the database connection
 #' @keywords sql
+#' @return Currently, a list is returned with the following elements,
+#' \enumerate{
+#'  \item \code{data}: an R \code{data.frame} of the desired records and columns.
+#'  \item \code{fields}: list of the desired field names.
+#'  \item \code{elapsed_seconds}: the duration of the function.
+#'  \item \code{status_message}: a boolean value indicating if the operation was apparently successful.
+#' }
 #’ @export
 #' @examples
-#' sql_query("")
+#' edwQuery(schema="Encounter", 
+#'    table="PatientEncounterHospitalBASE", 
+#'    order="PatientEncounterDateRealNBR DESC", 
+#'    max=5)
 
 edwQuery <- function(schema, 
                      table_name, 
                      max=10, 
                      fields="*", 
                      where="1=1",
-                     order = NA,
+                     order = "",
                      resource="Phloston"
                      ) {
-  
-  require(RODBC)
-  
+  start_time <- Sys.time()
   conn <- odbcDriverConnect(connection_string(resource))
   
   # build sql command
@@ -38,10 +46,10 @@ edwQuery <- function(schema,
   sql.where <- sprintf("AND %s ", 
                        where)
   
-  if(!is.na(order)) {
+  if(order != "") {
     sql.order <- sprintf("ORDER BY %s ", 
                        order)
-  }
+  } else sql.order <- NULL
 
   sql <- paste0(sql.select, sql.from, sql.where, sql.order)
   
@@ -50,7 +58,23 @@ edwQuery <- function(schema,
                           sql,
                           stringsAsFactors=FALSE)
   odbcClose(conn)
-  queryResult
+  
+  elapsed_seconds <- as.numeric(difftime( Sys.time(), start_time, units="secs"))
+  
+  status_message <- paste0(format(nrow(queryResult), big.mark = ",", scientific = FALSE, trim = TRUE), 
+                           " records and ",  
+                           format(length(queryResult), big.mark = ",", scientific = FALSE, trim = TRUE), 
+                           " columns were read from ", resource, " in ", 
+                           round(elapsed_seconds, 2), " seconds.")
+  
+  
+  return( list(
+    data = queryResult,
+    fields = names(queryResult),
+    elapsed_seconds = elapsed_seconds,
+    status_message = status_message
+    )
+  )
   
 }
 
