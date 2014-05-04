@@ -4,16 +4,18 @@
 \title{edwFetch}
 \usage{
 edwFetch(resource = "Phloston", schemaName = NULL, tableName = NULL,
-  max = 10)
+  colnames = FALSE, max = 10)
 }
 \arguments{
 \item{resource}{- Alias for the database connection}
 
-\item{schema}{- name of the desired schema}
+\item{schemaName}{- desired schema}
 
-\item{tableName}{- name of the desired table}
+\item{tableName}{- desired table}
 
-\item{catalog}{- name of the desired database}
+\item{colnames}{- desired columns}
+
+\item{max}{= TOP n rows from the query results}
 }
 \description{
 read some or all of a table from the EDW into a data frame

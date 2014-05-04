@@ -2,12 +2,10 @@
 #' 
 #' read some or all of a table from the EDW into a data frame
 #' @param resource - Alias for the database connection
-#' @param schema - name of the desired schema
-#' @param tableName - name of the desired table
-#' @param catalog - name of the desired database
-
-
-
+#' @param schemaName - desired schema
+#' @param tableName - desired table
+#' @param colnames - desired columns
+#' @param max = TOP n rows from the query results
 #' @keywords sql
 #’ @export
 #' @examples
@@ -18,6 +16,7 @@
 edwFetch <- function(resource="Phloston",
                      schemaName = NULL,
                      tableName = NULL,
+                     colnames = FALSE,
                      max = 10
                       ) {
   
@@ -25,9 +24,10 @@ edwFetch <- function(resource="Phloston",
   
   conn <- odbcDriverConnect(connection_string(resource))
   
-  
-  
-  queryResult <- sqlFetch(conn, sqtable = paste(schemaName, tableName, sep="."), max=max)
+  queryResult <- sqlFetch(conn, 
+                          sqtable = paste(schemaName, tableName, sep="."), 
+                          colnames = colnames,
+                          max=max)
   
   odbcClose(conn)
   queryResult
