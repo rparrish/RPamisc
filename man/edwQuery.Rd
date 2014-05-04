@@ -4,7 +4,7 @@
 \title{edwquery}
 \usage{
 edwQuery(schema, table_name, max = 10, fields = "*", where = "1=1",
-  resource = "Phloston")
+  order = NA, resource = "Phloston")
 }
 \arguments{
 \item{schema}{- name of the desired schema}
