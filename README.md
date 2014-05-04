@@ -17,6 +17,7 @@ RPamisc is a package with miscellaneous functions that intend to make using R a 
 
 ## Installation  
 
+
 This package can be installed using devtools with the following:
 
     devtools::install_github("RPamisc", "rparrish")
