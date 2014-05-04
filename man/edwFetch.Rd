@@ -6,13 +6,13 @@
 edwFetch(resource = "Phloston", schema = NULL, table = NULL, max = 10)
 }
 \arguments{
-\item{resource}{- Alias for the database connection}
+  \item{resource}{- Alias for the database connection}
 
-\item{schema}{- desired schema}
+  \item{schema}{- desired schema}
 
-\item{table}{- desired table}
+  \item{table}{- desired table}
 
-\item{max}{= TOP n rows from the query results}
+  \item{max}{= TOP n rows from the query results}
 }
 \description{
 read some or all of a table from the EDW into a data frame

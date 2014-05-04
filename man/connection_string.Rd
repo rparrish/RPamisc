@@ -6,7 +6,7 @@
 connection_string(resource)
 }
 \arguments{
-\item{resource}{- Alias for the database connection}
+  \item{resource}{- Alias for the database connection}
 }
 \description{
 queries EDW using windows credentials

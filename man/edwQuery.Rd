@@ -4,26 +4,42 @@
 \title{edwquery}
 \usage{
 edwQuery(schema, table_name, max = 10, fields = "*", where = "1=1",
-  order = NA, resource = "Phloston")
+  order = "", resource = "Phloston")
 }
 \arguments{
-\item{schema}{- name of the desired schema}
+  \item{schema}{name of the desired schema}
 
-\item{table_name}{- name of the desired table}
+  \item{table_name}{name of the desired table}
 
-\item{max}{- used to return the TOP n records - use a large number for all records}
+  \item{max}{used to return the TOP n records - use a large
+  number for all records}
 
-\item{fields}{- single string of field names separated by commas}
+  \item{fields}{single string of field names separated by
+  commas}
 
-\item{where}{- additional where clauses}
+  \item{where}{additional WHERE clauses}
 
-\item{resource}{- Alias for the database connection}
+  \item{order}{additional ORDER BY clauses}
+
+  \item{resource}{Alias for the database connection}
+}
+\value{
+Currently, a list is returned with the following elements,
+\enumerate{ \item \code{data}: an R \code{data.frame} of
+the desired records and columns.  \item \code{fields}: list
+of the desired field names.  \item \code{elapsed_seconds}:
+the duration of the function.  \item \code{status_message}:
+a boolean value indicating if the operation was apparently
+successful. }
 }
 \description{
 queries EDW using windows credentials
 }
 \examples{
-sql_query("")
+edwQuery(schema="Encounter",
+   table="PatientEncounterHospitalBASE",
+   order="PatientEncounterDateRealNBR DESC",
+   max=5)
 }
 \keyword{sql}
 

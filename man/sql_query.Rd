@@ -6,11 +6,11 @@
 sql_query(sql, dsn = "", file = TRUE)
 }
 \arguments{
-\item{sql}{}
+  \item{sql}{}
 
-\item{dsn}{}
+  \item{dsn}{}
 
-\item{file}{(defaults to TRUE)}
+  \item{file}{(defaults to TRUE)}
 }
 \description{
 queries SQL Server as configured in system DSN

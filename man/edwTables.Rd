@@ -7,13 +7,13 @@ edwTables(catalog = NULL, schema = NULL, tableName = NULL,
   tableType = NULL, resource = "Phloston")
 }
 \arguments{
-\item{catalog}{- name of the desired database}
+  \item{catalog}{- name of the desired database}
 
-\item{schema}{- name of the desired schema}
+  \item{schema}{- name of the desired schema}
 
-\item{tableName}{- name of the desired table}
+  \item{tableName}{- name of the desired table}
 
-\item{resource}{- Alias for the database connection}
+  \item{resource}{- Alias for the database connection}
 }
 \description{
 queries EDW using windows credentials
