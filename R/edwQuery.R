@@ -7,6 +7,7 @@
 #' @param fields single string of field names separated by commas
 #' @param where additional WHERE clauses
 #' @param order additional ORDER BY clauses
+#' @param na.rm remove columns where all values are NA
 #' @param resource Alias for the database connection
 #' @keywords sql
 #' @return Currently, a list is returned with the following elements,
@@ -29,6 +30,7 @@ edwQuery <- function(schema,
                      fields="*", 
                      where="1=1",
                      order = "",
+                     na.rm = TRUE,
                      resource="Phloston"
                      ) {
   start_time <- Sys.time()
@@ -58,6 +60,8 @@ edwQuery <- function(schema,
                           sql,
                           stringsAsFactors=FALSE)
   odbcClose(conn)
+  
+  if(na.rm) {queryResult <- queryResult[colSums(is.na(queryResult)) < nrow(queryResult)] }
   
   elapsed_seconds <- as.numeric(difftime( Sys.time(), start_time, units="secs"))
   
