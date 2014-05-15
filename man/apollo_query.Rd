@@ -3,7 +3,11 @@
 \alias{apollo_query}
 \title{apollo_query}
 \usage{
+<<<<<<< HEAD
 apollo_query(sql, uid, pwd, file = TRUE)
+=======
+apollo_query(sql, uid = "roapollo", pwd, file = TRUE)
+>>>>>>> 406ec62b524f77cb656cc760fb2c9c51f5030773
 }
 \arguments{
   \item{sql}{}
