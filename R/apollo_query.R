@@ -10,7 +10,7 @@
 #' @examples
 #' sql_query("select * from table")
 
-apollo_query <- function (sql, uid="roapollo", pwd, file = TRUE) {
+apollo_query <- function (sql, uid, pwd, file = TRUE) {
 
     if (file) {
         sql <- readLines(sql, ok = TRUE, warn = FALSE)

@@ -3,7 +3,7 @@
 \alias{apollo_query}
 \title{apollo_query}
 \usage{
-apollo_query(sql, uid = "roapollo", pwd, file = TRUE)
+apollo_query(sql, uid, pwd, file = TRUE)
 }
 \arguments{
   \item{sql}{}
