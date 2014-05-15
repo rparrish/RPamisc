@@ -4,7 +4,7 @@
 \title{edwquery}
 \usage{
 edwQuery(schema, table_name, max = 10, fields = "*", where = "1=1",
-  order = "", resource = "Phloston")
+  order = "", na.rm = TRUE, resource = "Phloston")
 }
 \arguments{
   \item{schema}{name of the desired schema}
@@ -20,6 +20,8 @@ edwQuery(schema, table_name, max = 10, fields = "*", where = "1=1",
   \item{where}{additional WHERE clauses}
 
   \item{order}{additional ORDER BY clauses}
+
+  \item{na.rm}{remove columns where all values are NA}
 
   \item{resource}{Alias for the database connection}
 }
