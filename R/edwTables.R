@@ -7,28 +7,25 @@
 #' @param resource - Alias for the database connection
 #' @keywords sql
 #’ @export
-#' @examples
-#' edw_tables("Phloston")
-#' 
 
 
 edwTables <- function(catalog = NULL,
-                       schema = NULL, 
+                       schema = NULL,
                        tableName = NULL,
-                       tableType = NULL, 
+                       tableType = NULL,
                        resource="Phloston"
 ) {
-  
-  require(RODBC)
-  
-  conn <- odbcDriverConnect(connection_string(resource))
-  
 
-  
+  require(RODBC)
+
+  conn <- odbcDriverConnect(connection_string(resource))
+
+
+
   queryResult <- sqlTables(conn, catalog=catalog, schema=schema, )
 
   odbcClose(conn)
   queryResult
-  
+
 }
 

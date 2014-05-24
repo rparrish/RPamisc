@@ -7,8 +7,6 @@
 #' @param file (defaults to TRUE)
 #' @keywords sql
 #’ @export
-#' @examples
-#' sql_query("select * from table")
 
 apollo_query <- function (sql, uid, pwd, file = TRUE) {
 

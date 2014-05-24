@@ -37,11 +37,5 @@ successful. }
 \description{
 queries EDW using windows credentials
 }
-\examples{
-edwQuery(schema="Encounter",
-   table="PatientEncounterHospitalBASE",
-   order="PatientEncounterDateRealNBR DESC",
-   max=5)
-}
 \keyword{sql}
 

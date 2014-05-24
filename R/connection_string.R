@@ -4,9 +4,6 @@
 #' @param resource - Alias for the database connection
 #' @keywords sql
 #’ @export
-#' @examples
-#' connection_string("Trantor")
-#' connection_string("Aurora")
 
 
 

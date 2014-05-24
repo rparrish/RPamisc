@@ -18,16 +18,11 @@
 #'  \item \code{status_message}: a boolean value indicating if the operation was apparently successful.
 #' }
 #’ @export
-#' @examples
-#' edwQuery(schema="Encounter", 
-#'    table="PatientEncounterHospitalBASE", 
-#'    order="PatientEncounterDateRealNBR DESC", 
-#'    max=5)
 
-edwQuery <- function(schema, 
-                     table_name, 
-                     max=10, 
-                     fields="*", 
+edwQuery <- function(schema,
+                     table_name,
+                     max=10,
+                     fields="*",
                      where="1=1",
                      order = "",
                      na.rm = TRUE,
@@ -35,7 +30,7 @@ edwQuery <- function(schema,
                      ) {
   start_time <- Sys.time()
   conn <- odbcDriverConnect(connection_string(resource))
-  
+
   # build sql command
   sql.select <- sprintf("SELECT TOP %s %s ",
                         as.integer(max),
@@ -44,34 +39,34 @@ edwQuery <- function(schema,
   sql.from <- sprintf("FROM %s.%s WHERE 1=1 ",
                       schema,
                       table_name)
-  
-  sql.where <- sprintf("AND %s ", 
+
+  sql.where <- sprintf("AND %s ",
                        where)
-  
+
   if(order != "") {
-    sql.order <- sprintf("ORDER BY %s ", 
+    sql.order <- sprintf("ORDER BY %s ",
                        order)
   } else sql.order <- NULL
 
   sql <- paste0(sql.select, sql.from, sql.where, sql.order)
-  
+
   #result <- sqlTables(conn)
-  queryResult <- sqlQuery(conn, 
+  queryResult <- sqlQuery(conn,
                           sql,
                           stringsAsFactors=FALSE)
   odbcClose(conn)
-  
+
   if(na.rm) {queryResult <- queryResult[colSums(is.na(queryResult)) < nrow(queryResult)] }
-  
+
   elapsed_seconds <- as.numeric(difftime( Sys.time(), start_time, units="secs"))
-  
-  status_message <- paste0(format(nrow(queryResult), big.mark = ",", scientific = FALSE, trim = TRUE), 
-                           " records and ",  
-                           format(length(queryResult), big.mark = ",", scientific = FALSE, trim = TRUE), 
-                           " columns were read from ", resource, " in ", 
+
+  status_message <- paste0(format(nrow(queryResult), big.mark = ",", scientific = FALSE, trim = TRUE),
+                           " records and ",
+                           format(length(queryResult), big.mark = ",", scientific = FALSE, trim = TRUE),
+                           " columns were read from ", resource, " in ",
                            round(elapsed_seconds, 2), " seconds.")
-  
-  
+
+
   return( list(
     data = queryResult,
     fields = names(queryResult),
@@ -79,7 +74,7 @@ edwQuery <- function(schema,
     status_message = status_message
     )
   )
-  
+
 }
 
 

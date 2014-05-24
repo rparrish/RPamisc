@@ -6,8 +6,6 @@
 #' @param file (defaults to TRUE)
 #' @keywords sql
 #’ @export
-#' @examples
-#' sql_query("select * from table")
 
 sql_query <- function (sql, dsn = "", file = TRUE) {
 

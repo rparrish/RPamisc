@@ -14,7 +14,7 @@
 #' E <- c(0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1, 0.1,
 #'        0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4)
 #' sort.var <- 1:20
-#' cusumPlot()
+#' cusumPlot(O, E, sort.var)
 
 cusumPlot <- function(O,E,sort.var,Col="black",title=NULL)
 {

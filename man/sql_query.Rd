@@ -15,8 +15,5 @@ sql_query(sql, dsn = "", file = TRUE)
 \description{
 queries SQL Server as configured in system DSN
 }
-\examples{
-sql_query("select * from table")
-}
 \keyword{sql}
 

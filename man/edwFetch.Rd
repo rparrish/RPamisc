@@ -17,8 +17,5 @@ edwFetch(resource = "Phloston", schema = NULL, table = NULL, max = 10)
 \description{
 read some or all of a table from the EDW into a data frame
 }
-\examples{
-edw_tables("Phloston")
-}
 \keyword{sql}
 

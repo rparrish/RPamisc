@@ -11,8 +11,5 @@ cat_function(love = TRUE)
 \description{
 This function allows you to express your love of cats.
 }
-\examples{
-cat_function()
-}
 \keyword{cats}
 

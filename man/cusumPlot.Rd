@@ -3,7 +3,7 @@
 \alias{cusumPlot}
 \title{cusumPlot}
 \usage{
-cusumPlot(O, E, sort.var, Col = "black")
+cusumPlot(O, E, sort.var, Col = "black", title = NULL)
 }
 \arguments{
   \item{O}{vector of observed rate/probability}
@@ -24,8 +24,8 @@ displays a straight-forward CUSUM plot
 O <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
 E <- c(0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1, 0.1,
        0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4)
-sor.var <- 1:20
-cusumPlot()
+sort.var <- 1:20
+cusumPlot(O, E, sort.var)
 }
 \keyword{cusum}
 

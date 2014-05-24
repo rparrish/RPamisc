@@ -17,8 +17,5 @@ apollo_query(sql, uid, pwd, file = TRUE)
 \description{
 queries Apollo Server as configured in system DSN
 }
-\examples{
-sql_query("select * from table")
-}
 \keyword{sql}
 

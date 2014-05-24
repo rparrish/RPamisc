@@ -11,9 +11,5 @@ connection_string(resource, database = NULL, uid, pwd)
 \description{
 queries EDW using windows credentials
 }
-\examples{
-connection_string("Trantor")
-connection_string("Aurora")
-}
 \keyword{sql}
 
