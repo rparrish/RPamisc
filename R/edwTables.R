@@ -7,6 +7,8 @@
 #' @param resource - Alias for the database connection
 #' @keywords sql
 #’ @export
+#' @example
+#' edwTables()
 
 
 edwTables <- function(catalog = NULL,
