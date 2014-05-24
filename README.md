@@ -14,7 +14,7 @@ RPamisc is a package with miscellaneous functions that intend to make using R a 
 
 
 ## Graphics
-
+ - `cusumPlot` - generates a basic CUSUM plot. Code adapted from MDRC.
 
 ## Installation  
 

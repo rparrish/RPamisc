@@ -18,5 +18,8 @@ edwTables(catalog = NULL, schema = NULL, tableName = NULL,
 \description{
 queries EDW using windows credentials
 }
+\examples{
+edwTables()
+}
 \keyword{sql}
 

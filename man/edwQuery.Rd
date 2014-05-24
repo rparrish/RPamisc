@@ -37,5 +37,8 @@ successful. }
 \description{
 queries EDW using windows credentials
 }
+\examples{
+edwQuery(schema="Clinical", table="EDEventBASE", max=20)
+}
 \keyword{sql}
 

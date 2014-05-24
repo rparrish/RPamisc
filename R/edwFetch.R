@@ -6,7 +6,10 @@
 #' @param table - desired table
 #' @param max = TOP n rows from the query results
 #' @keywords sql
-#’ @export
+#' @export
+#' @examples
+#' edwFetch(schemaName="Pharmacy", tableName="MedicationBASE")
+#'
 
 
 edwFetch <- function(resource="Phloston",

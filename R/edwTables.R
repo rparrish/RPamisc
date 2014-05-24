@@ -6,8 +6,8 @@
 #' @param tableName - name of the desired table
 #' @param resource - Alias for the database connection
 #' @keywords sql
-#’ @export
-#' @example
+#' @export
+#' @examples
 #' edwTables()
 
 

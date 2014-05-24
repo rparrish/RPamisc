@@ -5,7 +5,10 @@
 #' @param dsn
 #' @param file (defaults to TRUE)
 #' @keywords sql
-#’ @export
+#' @export
+#' @examples
+#' sql <- "Followup Analysis - 2014/sql/demographics.sql"
+#' icd10 <- sql_query(sql, dsn="ClinicalAnalytics", file=TRUE)
 
 sql_query <- function (sql, dsn = "", file = TRUE) {
 

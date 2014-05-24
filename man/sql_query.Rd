@@ -15,5 +15,9 @@ sql_query(sql, dsn = "", file = TRUE)
 \description{
 queries SQL Server as configured in system DSN
 }
+\examples{
+sql <- "Followup Analysis - 2014/sql/demographics.sql"
+icd10 <- sql_query(sql, dsn="ClinicalAnalytics", file=TRUE)
+}
 \keyword{sql}
 

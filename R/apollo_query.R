@@ -6,7 +6,7 @@
 #' @param pwd password
 #' @param file (defaults to TRUE)
 #' @keywords sql
-#’ @export
+#' @export
 
 apollo_query <- function (sql, uid, pwd, file = TRUE) {
 

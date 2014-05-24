@@ -3,7 +3,6 @@
 #' queries EDW using windows credentials
 #' @param resource - Alias for the database connection
 #' @keywords sql
-#’ @export
 
 
 
