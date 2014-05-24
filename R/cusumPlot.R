@@ -16,7 +16,7 @@
 #' sort.var <- 1:20
 #' cusumPlot()
 
-cusumPlot <- function(O,E,sort.var,Col="black")
+cusumPlot <- function(O,E,sort.var,Col="black",title=NULL)
 {
     eVar <- E*(1-E) # calculate the eVar
     sort.ind <- order(sort.var) # sort the O,E, eVar and sort.var by sort.var
@@ -38,5 +38,6 @@ cusumPlot <- function(O,E,sort.var,Col="black")
     abline(h=0, lty=2, col="black")
     lines(sort.var, ciH, lwd=2, type="s", col=Col)
     lines(sort.var, ciL, lwd=2, type="s", col=Col)
+    title(title)
 
 }### end of cusumPlot() function
