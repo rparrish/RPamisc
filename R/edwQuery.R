@@ -3,7 +3,7 @@
 #' queries EDW using windows credentials
 #' @param schema name of the desired schema
 #' @param table_name name of the desired table
-#' @param max used to return the TOP n records - use a large number for all records
+#' @param max used to return the TOP n records - defaults to 10. Set to FALSE to return all results
 #' @param fields single string of field names separated by commas
 #' @param where additional WHERE clauses
 #' @param order additional ORDER BY clauses
@@ -33,6 +33,8 @@ edwQuery <- function(schema,
                      ) {
   start_time <- Sys.time()
   conn <- odbcDriverConnect(connection_string(resource))
+
+  if(max=FALSE) {max=1000000000}
 
   # build sql command
   sql.select <- sprintf("SELECT TOP %s %s ",
