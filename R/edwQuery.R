@@ -34,7 +34,7 @@ edwQuery <- function(schema,
   start_time <- Sys.time()
   conn <- odbcDriverConnect(connection_string(resource))
 
-  if(max=FALSE) {max=1000000000}
+  if(max==FALSE) {max=1000000000}
 
   # build sql command
   sql.select <- sprintf("SELECT TOP %s %s ",
