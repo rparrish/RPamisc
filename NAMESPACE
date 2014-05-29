@@ -3,6 +3,7 @@
 export(apollo_query)
 export(cat_function)
 export(cusumPlot)
+export(dotplot.errors)
 export(edwFetch)
 export(edwQuery)
 export(edwTables)

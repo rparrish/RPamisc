@@ -11,8 +11,8 @@ edwQuery(schema, table_name, max = 10, fields = "*", where = "1=1",
 
   \item{table_name}{name of the desired table}
 
-  \item{max}{used to return the TOP n records - use a large
-  number for all records}
+  \item{max}{used to return the TOP n records - defaults to
+  10. Set to FALSE to return all results}
 
   \item{fields}{single string of field names separated by
   commas}
@@ -36,9 +36,6 @@ successful. }
 }
 \description{
 queries EDW using windows credentials
-}
-\examples{
-edwQuery(schema="Clinical", table="EDEventBASE", max=20)
 }
 \keyword{sql}
 
