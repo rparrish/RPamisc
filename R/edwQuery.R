@@ -18,8 +18,6 @@
 #'  \item \code{status_message}: a boolean value indicating if the operation was apparently successful.
 #' }
 #' @export
-#' @examples
-#' edwQuery(schema="Clinical", table="EDEventBASE", max=20)
 #'
 
 edwQuery <- function(schema,

@@ -7,8 +7,6 @@
 #' @param max = TOP n rows from the query results
 #' @keywords sql
 #' @export
-#' @examples
-#' edwFetch(schemaName="Pharmacy", tableName="MedicationBASE")
 #'
 
 

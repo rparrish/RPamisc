@@ -1,8 +1,8 @@
 #' dotplot.errors
 #'
-#' queries EDW using windows credentials
+#' displays a basic dotplot with confidence bars
 #' @param title The title of the measure
-#' @param name vector of the names of each observation (ie. hospital, provider)
+#' @param group vector of the names of each observation (ie. hospital, provider)
 #' @param measure vector of measure values
 #' @param upper vector with each upper confidence interval
 #' @param lower vector with each lower confidence interval
@@ -10,16 +10,6 @@
 #' @keywords dotplot
 #' @return plots a simple dotplot with title and benchmark as a horizontal dashed line.
 #' @export
-#' @examples
-#' group <- c("PAMC", "PHCMC", "PLCMT", "PMMC", "PPMC", "PRMCE", "PSHMC", "PSJMC", "PSPH", "PSVMC", "PTMC", "SMCCH", "SPHHSC")
-#' measure <- c("7.370184255", "3.658536585", "0.45045045", "9.139784946", "5.813953488", "2.23325062", "1.752848379", "4.909560724", "2.777777778", "3.610108303", "0", "1.50862069", "6.425041186")
-#' lower <- c("5.405954443", "2.06185199", "0.054598268", "5.414712287", "3.58711388", "1.328809357", "1.073889102", "2.981406318", "1.768844576", "2.448730538", "0", "0.827166709", "4.608364085")
-#' upper <-  c("9.768064814", "5.962475146", "1.61763621", "14.23027598", "8.836604532", "3.506601868", "2.694203006", "7.560926463", "4.139000759", "5.113740293", "1.30881647", "2.518265819", "8.678874819")
-#' benchmark <- "3.350879445"
-#'
-#' mydata <- data.frame(group=group, lower=lower, est=measure, upper=upper)
-#'
-#' dotplot.errors(x, reference.line=benchmark)
 #'
 
 dotplot.errors <- function(x, myTheme = simpleTheme(pch = 19, col = 1),
