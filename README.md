@@ -10,6 +10,10 @@ RPamisc is a package with miscellaneous functions that intend to make using R a 
  - `connection_string` - constructs the connection string for RODBC functions using an alias
 
 
+## Miscelaneous Functions
+ - `medd` - calculates the Morphine-equivalent daily dosage of various opioids
+ 
+ 
 ## Analysis
 
 
