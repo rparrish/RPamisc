@@ -3,10 +3,11 @@
 \alias{medd}
 \title{medd}
 \usage{
-medd(hydrocodone_po = 0, morphine_iv = 0, hydromorphone_iv = 0,
-  fentanyl_iv = 0, fentanyl_td = 0, hydromorphone_po = 0,
-  methadone_iv = 0, oxycodone_po = 0, oxymorphone_po = 0,
-  sufentanil_iv = 0, tramadol_iv = 0)
+medd(hydrocodone_po = 0, morphine_iv = 0, morphine_po = 0,
+  hydromorphone_iv = 0, fentanyl_iv = 0, fentanyl_td = 0,
+  hydromorphone_po = 0, methadone_iv = 0, oxycodone_po = 0,
+  oxymorphone_po = 0, sufentanil_iv = 0, nalbuphine_iv = 0,
+  tramadol_iv = 0)
 }
 \arguments{
   \item{fentanyl_iv}{IV fentaNYL total}

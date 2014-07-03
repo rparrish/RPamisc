@@ -61,7 +61,7 @@ medd <- function (hydrocodone_po=0,
                    oxycodone_po = 0,
                    oxymorphone_po = 0,
                    sufentanil_iv = 0,
-                   nalbupine_iv = 0,
+                   nalbuphine_iv = 0,
                    tramadol_iv = 0
                   ) {
 
@@ -76,7 +76,7 @@ medd <- function (hydrocodone_po=0,
     meq.oxycodone_po = 13
     meq.oxymorphone_po = 15
     meq.sufentanil_iv = 17
-    meq.nalbupine = 1
+    meq.nalbuphine_iv = 1
     meq.tramadol_iv = 18
 
     total <- prod(hydrocodone_po, meq.hydrocodone_po, na.rm = TRUE)  +
