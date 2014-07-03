@@ -52,6 +52,7 @@
 
 medd <- function (hydrocodone_po=0,
                    morphine_iv=0,
+                   morphine_po=0,
                    hydromorphone_iv=0,
                    fentanyl_iv = 0,
                    fentanyl_td = 0,
@@ -66,6 +67,7 @@ medd <- function (hydrocodone_po=0,
 
     meq.hydrocodone_po = 3
     meq.morphine_iv = 11
+    meq.morphine_po = 1
     meq.hydromorphone_iv = 5
     meq.fentanyl_iv = 10
     meq.fentanyl_td = 1
@@ -79,6 +81,7 @@ medd <- function (hydrocodone_po=0,
 
     total <- prod(hydrocodone_po, meq.hydrocodone_po, na.rm = TRUE)  +
         prod(morphine_iv, meq.morphine_iv, na.rm = TRUE) +
+        prod(morphine_po, meq.morphine_po, na.rm = TRUE) +
         prod(hydromorphone_iv, meq.hydromorphone_iv, na.rm = TRUE) +
         prod(fentanyl_iv, meq.fentanyl_iv, na.rm = TRUE) +
         prod(fentanyl_td, meq.fentanyl_td, na.rm = TRUE) +
