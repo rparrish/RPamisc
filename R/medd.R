@@ -65,19 +65,19 @@ medd <- function (hydrocodone_po=0,
                    tramadol_iv = 0
                   ) {
 
-    meq.hydrocodone_po = 3
-    meq.morphine_iv = 11
+    meq.hydrocodone_po = .3
+    meq.morphine_iv = 1
     meq.morphine_po = 1
-    meq.hydromorphone_iv = 5
-    meq.fentanyl_iv = 10
-    meq.fentanyl_td = 1
-    meq.hydromorphone_po = 7
-    meq.methadone_iv = 9
-    meq.oxycodone_po = 13
-    meq.oxymorphone_po = 15
-    meq.sufentanil_iv = 17
+    meq.hydromorphone_iv = 6.7
+    meq.fentanyl_iv = 100
+    meq.fentanyl_td = 25
+    meq.hydromorphone_po = 1.3
+    meq.methadone_iv = 9999
+    meq.oxycodone_po = .5
+    meq.oxymorphone_po = 1
+    meq.sufentanil_iv = 9999
     meq.nalbuphine_iv = 1
-    meq.tramadol_iv = 18
+    meq.tramadol_iv = 9999
 
     total <- prod(hydrocodone_po, meq.hydrocodone_po, na.rm = TRUE)  +
         prod(morphine_iv, meq.morphine_iv, na.rm = TRUE) +
