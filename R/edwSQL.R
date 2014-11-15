@@ -16,7 +16,7 @@
 #'
 
 
-edwSQL <- function (sql="SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE", resource = "Phloston", file=TRUE,...) {
+edwSQL <- function (sql="SELECT TOP 10 * FROM table", resource = "Phloston", file=TRUE,...) {
     start_time <- Sys.time()
     conn <- odbcDriverConnect(connection_string(resource))
 
