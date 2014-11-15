@@ -3,9 +3,8 @@
 \alias{edwSQL}
 \title{edwSQL}
 \usage{
-
-  edwSQL(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE",
-  resource = "Phloston", file = TRUE, ...)
+edwSQL(sql = "SELECT TOP 10 * FROM table", resource = "Phloston",
+  file = TRUE, ...)
 }
 \arguments{
   \item{sql}{- sql query or the path & name of a .sql file}
