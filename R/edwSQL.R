@@ -18,7 +18,7 @@
 
 edwSQL <- function (sql="SELECT TOP 10 * FROM table", resource = "Phloston", file=TRUE,...) {
     start_time <- Sys.time()
-    conn <- odbcDriverConnect(connection_string(resource))
+    conn <- odbcDriverConnect(connection_string(resource, database, uid, pwd))
 
     if (file) {
         sql <- readLines(sql, ok = TRUE, warn = FALSE)
