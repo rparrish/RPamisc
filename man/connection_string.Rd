@@ -3,7 +3,7 @@
 \alias{connection_string}
 \title{connection_string}
 \usage{
-connection_string(resource, database = NULL, uid, pwd)
+connection_string(resource, database = NULL, uid = NULL, pwd = NULL)
 }
 \arguments{
   \item{resource}{- Alias for the database connection}
