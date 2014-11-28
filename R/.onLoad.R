@@ -4,6 +4,6 @@
 
 # onload
 
-.bg_window_sql <- function(libname, pkgname) {
-    readLines( system.file("sql", "bg_window.sql", package="RPamisc"), ok = TRUE, warn = FALSE)
+.onLoad <- function(libname, pkgname) {
+     .bg_window_sql <- readLines( system.file("sql", "bg_window.sql", package="RPamisc"), ok = TRUE, warn = FALSE)
 }
