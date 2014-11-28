@@ -39,6 +39,11 @@
 bg_window <- function(cp_id, surgery_date, surgery_end_time) {
 
     ## bg_window_sql file is located in RPamisc/inst/sql folder
+    if(!exists(".bg_window_sql")) {
+        .bg_window_sql <-
+            readLines( system.file("sql", "bg_window.sql", package="RPamisc"),
+                       ok = TRUE, warn = FALSE)
+    }
     sql <- sprintf(.bg_window_sql, cp_id, sep="")
 
     mydata <- edwSQL(sql=sql, resource="Trantor", file=FALSE)$data
