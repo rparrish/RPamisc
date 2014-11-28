@@ -3,7 +3,7 @@
 \alias{edwSQL}
 \title{edwSQL}
 \usage{
-edwSQL(sql = "SELECT TOP 10 * FROM table", resource = "Phloston",
+edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "Apollo",
   file = TRUE, ...)
 }
 \arguments{

@@ -3,7 +3,8 @@
 \alias{connection_string}
 \title{connection_string}
 \usage{
-connection_string(resource, database = NULL, uid, pwd)
+connection_string(resource, database = NULL, uid = getOption("Apollo_uid"),
+  pwd = getOption("Apollo_pwd"))
 }
 \arguments{
   \item{resource}{- Alias for the database connection}
