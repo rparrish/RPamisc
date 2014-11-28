@@ -6,13 +6,13 @@
 
 
 
-connection_string <- function (resource, database=NULL, uid, pwd) {
+connection_string <- function (resource, database=NULL, uid=getOption("Apollo_uid"), pwd=getOption("Apollo_pwd")) {
   result <- switch(resource,
                    Trantor = "Driver=SQL Server;Server=EDWDBProd; Database=ProvidenceEpic",
                    Phloston = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic",
                    ClinicalAnalytics = "Driver=SQL Server;Server=wn2591\\PremierPRD; Database=ClinicalAnalytics",
-                   Apollo = "Driver=SQL Server;Server=wn1444; Database=%s; uid=%s; pwd=%s",
-                   Eva = sprintf("Driver=SQL Server;Server=wn1444; Database=%s; uid=%s; pwd=%s")
+                   Apollo = paste0("Driver=SQL Server;Server=wn1444; Database=Apollo_Spokane; uid=", uid, "; pwd=", pwd),
+                   Eva = paste0("Driver=SQL Server;Server=wn1444; Database=Testing; uid=", uid, "; pwd=", pwd)
                    )
   return(result)
 }
