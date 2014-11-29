@@ -66,8 +66,8 @@ bg_window <- function(cp_id, surgery_date, surgery_end_time) {
     results <- data.frame(cp_id = cp_id,
                           start = bg_window_start,
                           end = bg_window_end,
-                          min = minimum,
-                          max = maximum,
+                          min = as.numeric(minimum),
+                          max = as.numeric(maximum),
                           #values = values,
                           count_values = count_values,
                           count_180 = count_180
