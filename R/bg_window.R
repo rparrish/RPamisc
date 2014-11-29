@@ -58,8 +58,8 @@ bg_window <- function(cp_id, surgery_date, surgery_end_time) {
                      & mydata$ObtainedDTS <= bg_window_end
                      & mydata$CommunityPatientID == cp_id, ]
 
-    minimum <- min(values$ResultValueNBR)
-    maximum <- max(values$ResultValueNBR)
+    minimum <- suppressWarnings(min(values$ResultValueNBR))
+    maximum <- suppressWarnings(max(values$ResultValueNBR))
     count_values <- length(values$OrderProcedureID)
     count_180 <- length(values[which(values$ResultValueNBR > 180)])
 
