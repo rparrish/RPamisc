@@ -2,6 +2,7 @@
 
 export(apollo_query)
 export(bg_window)
+export(bg_window_summary)
 export(cat_function)
 export(cusumPlot)
 export(dotplot.errors)
