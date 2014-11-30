@@ -18,17 +18,8 @@
 #' surgery_date <- "2014-10-02"
 #' surgery_end_time <- "13:22"
 #'
-#' bg_window(cp_id, surgery_date, surgery_end_time)
+#' # bg_window(cp_id, surgery_date, surgery_end_time)
 #'
-#' ## multiples
-#' cases <- data.frame(cp_id = c("1504685006","1503010730", "1502850183"),
-#'                     surgery_date = c("2014-09-25", "2014-10-01", "2014-09-30"),
-#'                     surgery_end_time = c("16:58", "16:49", "13:40"))
-#'
-#' bg_window_data <- apply(cases[, c('cp_id', 'surgery_date', 'surgery_end_time')], 1,
-#'                      function(y) bg_window(y['cp_id'], y['surgery_date'], y['surgery_end_time']))
-#'
-#' do.call(rbind, bg_window_data)
 #'
 #' @export
 #'
