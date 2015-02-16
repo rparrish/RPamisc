@@ -12,4 +12,6 @@ VignetteBuilder: knitr
 Suggests:
     knitr
 Imports:
-    dplyr
+    dplyr,
+    tidyr,
+    magrittr
