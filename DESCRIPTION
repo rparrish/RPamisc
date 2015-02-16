@@ -11,3 +11,5 @@ Roxygen: list(wrap=TRUE)
 VignetteBuilder: knitr
 Suggests:
     knitr
+Imports:
+    dplyr
