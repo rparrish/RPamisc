@@ -1,1 +1,4 @@
 name: First Template
+description: >
+ My first template
+create_dir: true
