@@ -1,16 +1,22 @@
 ---
 title: "Untitled"
-author: "Rollie Parrish"
-date: "`r Sys.Date()`"
-abstract: this is the abstract.
+author: 
+ - "Rollie Parrish"
+ - "<rollie.parrish@providence.org>"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+abstract: this is the abstract
 output: 
     pdf_document:
       includes:
         in_header: header.tex
+      highlight: tango
+    fontsize: 11pt
+    geometry: margin=.75in
 bibliography: Bibliography.bib
 csl: apa.csl
-nocite: "@maisel_atrial_2001"
+nocite: "@maisel_atrial_2001, @fenner2012a"
 ---
+
 
 ```{r initial_setup, echo=FALSE, message=FALSE, warning=FALSE}
 library(RPamisc)
