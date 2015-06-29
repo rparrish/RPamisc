@@ -19,8 +19,8 @@ library(knitr)
 library(lubridate)
 library(zoo)
 
-options(scipen=10)
-knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+options(scipen = 10)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, comment = "")
 
 ```
 
