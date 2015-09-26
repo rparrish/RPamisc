@@ -23,7 +23,7 @@ get_CI <- function(name, num, den) {
     #  temp <- data.frame(t(mapply(get.CI, neoIntubSuccess$intubate_neo_success_1st, neoIntubSuccess$intubate_neo_attempts)))
     temp <- data.frame(t(mapply(getIndividualCI, num, den)))
 
-    results <- data.frame(group=paste0(program_name)
+    results <- data.frame(group=paste0(name)
                           , n=den
                           , k=num
                           #                , lower=unlist(temp$lower)
