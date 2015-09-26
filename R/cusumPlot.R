@@ -2,6 +2,7 @@
 #' cusumPlot
 #'
 #' displays a straight-forward CUSUM plot
+#'
 #' @param O vector of observed rate/probability
 #' @param E vector of expected rate /probability
 #' @param eVar estimated variance of event (calculated if NULL)
