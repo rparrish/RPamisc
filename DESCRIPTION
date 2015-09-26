@@ -7,7 +7,6 @@ Author: Rollie Parrish
 Maintainer: Rollie Parrish <rparrish@flightweb.com>
 Description: Incluces functions for sql queries, data analysis and graphics
 License: MIT
-Roxygen: list(wrap=TRUE)
 VignetteBuilder: knitr
 Suggests:
     knitr
