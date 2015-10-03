@@ -4,6 +4,15 @@
 #'
 #' @param sql - sql query or the path & name of a .sql file
 #' @param resource - Alias for the database connection
+#'
+#' \describe{
+#'   \item{Trantor}{EDWDBProd}
+#'   \item{Phloston}{EDWDBDev}
+#'   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
+#'   \item{Apollo}{\\\\wn1444 Apollo_Spokane}
+#'   \item{Eva}{\\\\wn1444 Testing}
+#' }
+#'
 #' @param file switch indicating if sql parameter is a .sql file or a command. Default is TRUE (requires .sql file)
 #' @return
 #' \item{data}{Query results as a data frame}

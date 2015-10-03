@@ -10,7 +10,15 @@ edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "Apollo",
 \arguments{
 \item{sql}{- sql query or the path & name of a .sql file}
 
-\item{resource}{- Alias for the database connection}
+\item{resource}{- Alias for the database connection
+
+\describe{
+  \item{Trantor}{EDWDBProd}
+  \item{Phloston}{EDWDBDev}
+  \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
+  \item{Apollo}{\\\\wn1444 Apollo_Spokane}
+  \item{Eva}{\\\\wn1444 Testing}
+}}
 
 \item{file}{switch indicating if sql parameter is a .sql file or a command. Default is TRUE (requires .sql file)}
 }

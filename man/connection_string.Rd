@@ -8,7 +8,17 @@ connection_string(resource, database = NULL, uid = getOption("Apollo_uid"),
   pwd = getOption("Apollo_pwd"))
 }
 \arguments{
-\item{resource}{- Alias for the database connection}
+\item{resource}{- Alias for the database connection
+\describe{
+  \item{Trantor}{EDWDBProd}
+  \item{Phloston}{EDWDBDev}
+  \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
+  \item{Apollo}{\\\\wn1444 Apollo_Spokane}
+  \item{Eva}{\\\\wn1444 Testing}
+}}
+}
+\value{
+Returns a connection string for RODBC
 }
 \description{
 queries EDW using windows credentials
