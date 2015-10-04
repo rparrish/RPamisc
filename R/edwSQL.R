@@ -25,10 +25,15 @@
 #'
 
 
-edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "Apollo", file=TRUE,...) {
+edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "Apollo", file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL,...) {
     start_time <- Sys.time()
-    conn <- odbcDriverConnect(connection_string(resource, database))
 
+    if(DSN) {
+      conn <- odbcConnect(resource, uid=uid, pwd=pwd, believeNRows=FALSE)
+       } else {
+     conn <- odbcDriverConnect(connection_string(resource, database))
+        }
+ 
     if (file) {
         sql <- readLines(sql, ok = TRUE, warn = FALSE)
     }
