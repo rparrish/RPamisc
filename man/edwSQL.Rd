@@ -5,7 +5,7 @@
 \title{edwSQL}
 \usage{
 edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "Apollo",
-  file = TRUE, ...)
+  file = TRUE, DSN = FALSE, uid = NULL, pwd = NULL, ...)
 }
 \arguments{
 \item{sql}{- sql query or the path & name of a .sql file}
