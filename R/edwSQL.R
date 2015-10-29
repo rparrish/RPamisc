@@ -14,6 +14,9 @@
 #' }
 #'
 #' @param file switch indicating if sql parameter is a .sql file or a command. Default is TRUE (requires .sql file)
+#' @param DSN if TRUE, use a DSN as specified in `resource` parameter instead of a connection string (ie. for Axis PATS: resource = "TSI_32", DSN = TRUE)
+#' @param uid username for connections if necessary. Default is NULL, which will then use the user's system credentials.
+#' @param pwd password for connections that don't use the user's system credentials. Default is NULL.
 #' @return
 #' \item{data}{Query results as a data frame}
 #' \item{fields}{field names}
@@ -33,7 +36,7 @@ edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "Apollo", 
        } else {
      conn <- odbcDriverConnect(connection_string(resource, database))
         }
- 
+
     if (file) {
         sql <- readLines(sql, ok = TRUE, warn = FALSE)
     }
