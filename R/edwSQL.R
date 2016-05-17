@@ -16,7 +16,7 @@
 #'   \item{Eva}{\\\\wn1444 Testing}
 #' }
 #'
-#' @param server used to specify the database server when resource parameter is not set.
+#' @param custom full connection string when using 'custom' as the resource.
 #' @param file switch indicating if sql parameter is a .sql file or a command. Default is TRUE (requires .sql file)
 #' @param DSN if TRUE, use a DSN as specified in `resource` parameter instead of a connection string (ie. for Axis PATS: resource = "TSI_32", DSN = TRUE)
 #' @param uid username for connections if necessary. Default is NULL, which will then use the user's system credentials.
@@ -32,13 +32,13 @@
 #'
 
 
-edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "custom", server = NULL, file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL,...) {
+edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "custom", custom = NULL, file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL,...) {
     start_time <- Sys.time()
 
     if(DSN) {
       conn <- odbcConnect(dsn = resource, uid = uid, pwd = pwd, believeNRows = FALSE)
        } else {
-     conn <- odbcDriverConnect(connection_string(resource = resource, server = server, uid = uid, pwd = pwd, ...))
+     conn <- odbcDriverConnect(connection_string(resource = resource, custom = custom, uid = uid, pwd = pwd, ...))
         }
 
     if (file) {

@@ -5,7 +5,7 @@
 \title{edwSQL}
 \usage{
 edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "custom",
-  server = NULL, file = TRUE, DSN = FALSE, uid = NULL, pwd = NULL,
+  custom = NULL, file = TRUE, DSN = FALSE, uid = NULL, pwd = NULL,
   ...)
 }
 \arguments{
@@ -24,7 +24,7 @@ edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "custom",
   \item{Eva}{\\\\wn1444 Testing}
 }}
 
-\item{server}{used to specify the database server when resource parameter is not set.}
+\item{custom}{full connection string when using 'custom' as the resource.}
 
 \item{file}{switch indicating if sql parameter is a .sql file or a command. Default is TRUE (requires .sql file)}
 
