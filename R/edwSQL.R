@@ -36,7 +36,7 @@ edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "custom", 
     start_time <- Sys.time()
 
     if(DSN) {
-      conn <- odbcConnect(resource = resource, uid = uid, pwd = pwd, believeNRows = FALSE)
+      conn <- odbcConnect(dsn = resource, uid = uid, pwd = pwd, believeNRows = FALSE)
        } else {
      conn <- odbcDriverConnect(connection_string(resource = resource, server = server, uid = uid, pwd = pwd, ...))
         }
