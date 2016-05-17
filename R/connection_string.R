@@ -3,6 +3,7 @@
 #' queries EDW using windows credentials
 #' @param resource - Alias for the database connection
 #' \describe{
+#'   \item{EDWDBProd}{EDWDBProd}
 #'   \item{Trantor}{EDWDBProd}
 #'   \item{Phloston}{EDWDBDev}
 #'   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
@@ -16,6 +17,7 @@
 
 connection_string <- function (resource, database=NULL, uid=getOption("Apollo_uid"), pwd=getOption("Apollo_pwd")) {
   result <- switch(resource,
+                   EDWDBProd = "Driver=SQL Server;Server=EDWDBProd;",
                    Trantor = "Driver=SQL Server;Server=EDWDBProd; Database=ProvidenceEpic",
                    Phloston = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic",
                    ClinicalAnalytics = "Driver=SQL Server;Server=wn2591\\PremierPRD; Database=ClinicalAnalytics",

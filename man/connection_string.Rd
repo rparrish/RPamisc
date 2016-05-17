@@ -10,6 +10,7 @@ connection_string(resource, database = NULL, uid = getOption("Apollo_uid"),
 \arguments{
 \item{resource}{- Alias for the database connection
 \describe{
+  \item{EDWDBProd}{EDWDBProd}
   \item{Trantor}{EDWDBProd}
   \item{Phloston}{EDWDBDev}
   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
