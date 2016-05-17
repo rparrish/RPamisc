@@ -16,6 +16,7 @@
 
 connection_string <- function (resource, database=NULL, uid=getOption("Apollo_uid"), pwd=getOption("Apollo_pwd")) {
   result <- switch(resource,
+                   EDWDBProd = "Driver=SQL Server;Server=EDWDBProd;",
                    Trantor = "Driver=SQL Server;Server=EDWDBProd; Database=ProvidenceEpic",
                    Phloston = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic",
                    ClinicalAnalytics = "Driver=SQL Server;Server=wn2591\\PremierPRD; Database=ClinicalAnalytics",
