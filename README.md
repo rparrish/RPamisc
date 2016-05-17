@@ -29,3 +29,10 @@ This package can be installed using devtools with the following:
 
     devtools::install_github(build_vignettes = TRUE, "rparrish/RPamisc")
  
+## Contributing
+
+- Fork it ( https://github.com/rparrish/RPamisc/fork )
+- Create your feature branch (git checkout -b my-new-feature)
+- Commit your changes (git commit -am 'Add some feature')
+- Push to the branch (git push origin my-new-feature)
+- Create a new Pull Request
