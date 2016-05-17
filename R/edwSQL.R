@@ -30,6 +30,28 @@
 #' @keywords sql
 #' @export
 #'
+#'
+#' @examples
+#' aliased resource (ie. EDWDBDev or EDWDBProd)
+#' edwSQL(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE", resource = "EDWDBDev", file = FALSE)$data
+
+#' Custom resource - any valid ODBC source
+#' edwSQL(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE", resource = "custom",
+#'       custom = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic", file = FALSE)$data
+
+#' User DSN
+#
+#' uid and pwd should not be set in the script or in the console for security reasons.
+#' Instead, set them in .Rprofile like this:
+#
+#' options(my_pwd = "mypassword", my_uid = "username"
+
+#' uid <- getOption("my_uid")
+#' pwd <- getOption("my_pwd")
+
+#' edwSQL(sql = "SELECT TOP 10 * FROM [All].core_patient_elements", resource = "ClinicalAnalytics", file = FALSE, DSN = TRUE,
+#'       uid=uid, pwd=pwd)$data
+
 
 
 edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "custom", custom = NULL, file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL,...) {
