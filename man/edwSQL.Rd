@@ -4,8 +4,9 @@
 \alias{edwSQL}
 \title{edwSQL}
 \usage{
-edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "Apollo",
-  file = TRUE, DSN = FALSE, uid = NULL, pwd = NULL, ...)
+edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "custom",
+  server = NULL, file = TRUE, DSN = FALSE, uid = NULL, pwd = NULL,
+  ...)
 }
 \arguments{
 \item{sql}{- sql query or the path & name of a .sql file}
@@ -13,12 +14,17 @@ edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "Apollo",
 \item{resource}{- Alias for the database connection
 
 \describe{
+  \item{custom}{allows for a connection to any database server using the server parameter}
+  \item{EDWDBDev}{EDWDBDev}
+  \item{EDWDBProd}{EDWDBProd}
   \item{Trantor}{EDWDBProd}
   \item{Phloston}{EDWDBDev}
   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
-  \item{Apollo}{\\\\wn1444 Apollo_Spokane}
+  \item{Apollo}{Apollo_Spokane}
   \item{Eva}{\\\\wn1444 Testing}
 }}
+
+\item{server}{used to specify the database server when resource parameter is not set.}
 
 \item{file}{switch indicating if sql parameter is a .sql file or a command. Default is TRUE (requires .sql file)}
 

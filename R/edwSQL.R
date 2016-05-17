@@ -6,13 +6,17 @@
 #' @param resource - Alias for the database connection
 #'
 #' \describe{
+#'   \item{custom}{allows for a connection to any database server using the server parameter}
+#'   \item{EDWDBDev}{EDWDBDev}
+#'   \item{EDWDBProd}{EDWDBProd}
 #'   \item{Trantor}{EDWDBProd}
 #'   \item{Phloston}{EDWDBDev}
 #'   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
-#'   \item{Apollo}{\\\\wn1444 Apollo_Spokane}
+#'   \item{Apollo}{Apollo_Spokane}
 #'   \item{Eva}{\\\\wn1444 Testing}
 #' }
 #'
+#' @param server used to specify the database server when resource parameter is not set.
 #' @param file switch indicating if sql parameter is a .sql file or a command. Default is TRUE (requires .sql file)
 #' @param DSN if TRUE, use a DSN as specified in `resource` parameter instead of a connection string (ie. for Axis PATS: resource = "TSI_32", DSN = TRUE)
 #' @param uid username for connections if necessary. Default is NULL, which will then use the user's system credentials.
@@ -28,13 +32,13 @@
 #'
 
 
-edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "Apollo", file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL,...) {
+edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "custom", server = NULL, file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL,...) {
     start_time <- Sys.time()
 
     if(DSN) {
-      conn <- odbcConnect(resource, uid=uid, pwd=pwd, believeNRows=FALSE)
+      conn <- odbcConnect(resource = resource, uid = uid, pwd = pwd, believeNRows = FALSE)
        } else {
-     conn <- odbcDriverConnect(connection_string(resource, database))
+     conn <- odbcDriverConnect(connection_string(resource = resource, server = server, uid = uid, pwd = pwd, ...))
         }
 
     if (file) {
