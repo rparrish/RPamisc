@@ -44,7 +44,7 @@
 #' # Instead, set them in .Rprofile like this:
 #
 #' options(my_pwd = "mypassword", my_uid = "username")
-
+# '
 #' uid <- getOption("my_uid")
 #' pwd <- getOption("my_pwd")
 
