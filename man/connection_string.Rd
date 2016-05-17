@@ -4,12 +4,13 @@
 \alias{connection_string}
 \title{connection_string}
 \usage{
-connection_string(resource, database = NULL, uid = getOption("Apollo_uid"),
-  pwd = getOption("Apollo_pwd"))
+connection_string(resource = "custom", server = NULL,
+  uid = getOption("Apollo_uid"), pwd = getOption("Apollo_pwd"))
 }
 \arguments{
 \item{resource}{- Alias for the database connection
 \describe{
+  \item{custom}{custom database server. must also specify the server parameter}
   \item{EDWDBProd}{EDWDBProd}
   \item{Trantor}{EDWDBProd}
   \item{Phloston}{EDWDBDev}

@@ -3,6 +3,7 @@
 #' queries EDW using windows credentials
 #' @param resource - Alias for the database connection
 #' \describe{
+#'   \item{custom}{custom database server. must also specify the server parameter}
 #'   \item{EDWDBProd}{EDWDBProd}
 #'   \item{Trantor}{EDWDBProd}
 #'   \item{Phloston}{EDWDBDev}
@@ -14,9 +15,12 @@
 #' @keywords sql
 
 
-
-connection_string <- function (resource, database=NULL, uid=getOption("Apollo_uid"), pwd=getOption("Apollo_pwd")) {
+connection_string <- function (resource="custom", server=NULL, uid=getOption("Apollo_uid"), pwd=getOption("Apollo_pwd")) {
+    if(resource == "custom" & is.null(server)) {
+        stop("Must specify the server when resource = 'custom'")
+    }
   result <- switch(resource,
+                   custom = paste0("Driver=SQL Server; Server=",server,", uid=", uid,"; pwd=", pwd),
                    EDWDBDev = "Driver=SQL Server;Server=EDWDBDev;",
                    EDWDBProd = "Driver=SQL Server;Server=EDWDBProd;",
                    Trantor = "Driver=SQL Server;Server=EDWDBProd; Database=ProvidenceEpic",
