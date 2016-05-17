@@ -38,18 +38,22 @@
 #'        file = FALSE)$data
 #'
 #'
-#' ### Custom resource - any valid ODBC source
+#' ### Custom resource - any valid ODBC source. if uid & pwd are not specified, then
+#' # the Windows (ie. a 'trusted connection' will be used).
+#'
 #' edwSQL(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE",
 #'        resource = "custom",
 #'        custom = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic", file = FALSE)$data
 #'
 #'
-#' ### User DSN
+#' ### User DSN - need to spedify the uid & pwd.
+#' # This requires a user or system DSN to be installed on your computer.
 #' # The uid and pwd should not be set in the script or in the console for security reasons.
-#' # Instead, set them in .Rprofile like this:
+#' # Instead, set them in your .Rprofile file like this:
 #
 #' options(my_pwd = "mypassword", my_uid = "username")
-# '
+#'
+#' # then in your script, you can load the uid and pwd like this:
 #' uid <- getOption("my_uid")
 #' pwd <- getOption("my_pwd")
 
