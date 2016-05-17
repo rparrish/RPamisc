@@ -58,8 +58,10 @@ edwSQL(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE",
 
 ### User DSN
 # The uid and pwd should not be set in the script or in the console for security reasons.
-# Instead, set them in .Rprofile like this:
+# Instead, set them in your .Rprofile file like this:
 options(my_pwd = "mypassword", my_uid = "username")
+
+# then in your script, you can load the uid and pwd like this:
 uid <- getOption("my_uid")
 pwd <- getOption("my_pwd")
 edwSQL(sql = "SELECT TOP 10 * FROM [All].core_patient_elements",
