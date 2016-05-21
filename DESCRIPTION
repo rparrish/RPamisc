@@ -1,6 +1,6 @@
 Package: RPamisc
 Type: Package
-Title: miscellaneous functions that intend to make using R a little easier.
+Title: This package contains miscellaneous functions that intend to make using R a little easier
 Version: 0.1
 Date: 2014-04-30
 Author: Rollie Parrish
@@ -9,7 +9,8 @@ Description: Incluces functions for sql queries, data analysis and graphics
 License: MIT
 VignetteBuilder: knitr
 Suggests: 
-    knitr
+    knitr,
+    RODBC
 Imports: 
     dplyr,
     tidyr,
