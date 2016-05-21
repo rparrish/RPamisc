@@ -5,9 +5,9 @@
 #'
 #' @param O vector of observed rate/probability
 #' @param E vector of expected rate /probability
-#' @param eVar estimated variance of event (calculated if NULL)
-#' @param sor.var variable to sort to CUSUM
+#' @param sort.var variable to sort to CUSUM
 #' @param Col color for the CUSUM lines
+#' @param title plot title
 #' @keywords cusum
 #' @export
 #' @examples
@@ -17,7 +17,8 @@
 #' sort.var <- 1:20
 #' cusumPlot(O, E, sort.var)
 
-cusumPlot <- function(O,E,sort.var,Col="black",title=NULL)
+cusumPlot <- function(O, E, sort.var, Col="black", title=NULL)
+
 {
     eVar <- E*(1-E) # calculate the eVar
     sort.ind <- order(sort.var) # sort the O,E, eVar and sort.var by sort.var

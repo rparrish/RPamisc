@@ -11,11 +11,11 @@ cusumPlot(O, E, sort.var, Col = "black", title = NULL)
 
 \item{E}{vector of expected rate /probability}
 
+\item{sort.var}{variable to sort to CUSUM}
+
 \item{Col}{color for the CUSUM lines}
 
-\item{eVar}{estimated variance of event (calculated if NULL)}
-
-\item{sor.var}{variable to sort to CUSUM}
+\item{title}{plot title}
 }
 \description{
 displays a straight-forward CUSUM plot

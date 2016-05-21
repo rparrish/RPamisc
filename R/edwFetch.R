@@ -16,7 +16,7 @@ edwFetch <- function(resource="Phloston",
                      max = 10
                       ) {
 
-  require(RODBC)
+  requireNamespace("RODBC")
 
   conn <- odbcDriverConnect(connection_string(resource))
 

@@ -13,11 +13,10 @@
 edwTables <- function(catalog = NULL,
                        schema = NULL,
                        tableName = NULL,
-                       tableType = NULL,
                        resource="Phloston"
 ) {
 
-  require(RODBC)
+  requireNamespace("RODBC")
 
   conn <- odbcDriverConnect(connection_string(resource))
 

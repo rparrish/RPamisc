@@ -5,7 +5,7 @@
 \title{edwTables}
 \usage{
 edwTables(catalog = NULL, schema = NULL, tableName = NULL,
-  tableType = NULL, resource = "Phloston")
+  resource = "Phloston")
 }
 \arguments{
 \item{catalog}{- name of the desired database}
