@@ -3,7 +3,7 @@
 #' queries EDW using windows credentials
 #' @param resource - Alias for the database connection
 #' \describe{
-#'   \item{custom}{custom database connection string. }
+#'   \item{custom}{custom database connection string, as specified in the custom parameter}
 #'   \item{EDWDBProd}{EDWDBProd}
 #'   \item{Trantor}{EDWDBProd}
 #'   \item{Phloston}{EDWDBDev}
@@ -11,6 +11,9 @@
 #'   \item{Apollo}{\\\\wn1444 Apollo_Spokane}
 #'   \item{Eva}{\\\\wn1444 Testing}
 #' }
+#' @param custom a valid SQL connection string. used to connect to other resources (ie. a local SQL Express database)
+#' @param uid userid for those resources that require one
+#' @param pwd password for those resources that require one. Do not include verbatim passwords in scripts.
 #' @return Returns a connection string for RODBC
 #' @keywords sql
 
