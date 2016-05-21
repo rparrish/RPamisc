@@ -8,9 +8,10 @@ Maintainer: Rollie Parrish <rparrish@flightweb.com>
 Description: Incluces functions for sql queries, data analysis and graphics
 License: MIT
 VignetteBuilder: knitr
-Suggests:
+Suggests: 
     knitr
-Imports:
+Imports: 
     dplyr,
     tidyr,
-    magrittr
+    magrittr,
+    RODBC
