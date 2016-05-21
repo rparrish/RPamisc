@@ -1,38 +1,45 @@
 RPamisc
-=======
+================
 
-RPamisc is a package with miscellaneous functions that intend to make using R a little easier. The functions range from:  
+RPamisc is a package with miscellaneous functions that intend to make using R a little easier.
 
-## SQL functions
- - `sql_query` - generic function to parse and send a sql query from a .sql file or within an R file 
- - `edwTable`, `edwFetch`, & `edwQuery` - wrapper scripts for RODBC functions that return a list of tables, table contents, and a generic sql query
- - apolloQuery
- - `connection_string` - constructs the connection string for RODBC functions using an alias
+SQL functions
+-------------
 
+-   `edwSQL()` - primary function for working with the EDW.
+-   `edwTables()`, `edwFetch()`, & `edwQuery()` - additional wrapper scripts for RODBC functions that return a list of tables, or table contents. Not as flexible as edwSQL()
 
-## Miscelaneous Functions
- - `medd` - calculates the Morphine-Equivalent Daily Dosage of various opioids
- 
- 
-## Analysis
+Miscelaneous Functions
+----------------------
 
+-   `bg_window()` - for a specified CommunityPatientID, gathers all blood glucose results from the 18-24 hour post-op window
+-   `bg_window_summary()` - wrapper function for bg\_window for a list of patients.
+-   `cat_function()` - The function that started it all, or at least showed how easy it is to get started in writing R packages. This was taken from a tutorial blog post [Writing an R package from scratch](https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/) by Hilary Parker.
 
-## Graphics
- - `cusumPlot` - generates a basic CUSUM plot. Code adapted from MDRC.
- - `dotplot.errors` - generates a basic dotplot with confidence bars.
+Rmarkdown Templates (RStudio)
+-----------------------------
 
+-   "First Template" - Used to compose an short data analysis in PDF. Includes a corporate header logo and prompts for information and a structured outline. Requires LaTeX.
 
-## Installation  
+Graphics
+--------
 
+-   `cusumPlot` - generates a basic CUSUM plot. Code adapted from MDRC.
+-   `dotplot.errors` - generates a basic dotplot with confidence bars.
+-   `get_CI()` - Determine the confidence intervals for each group based on numerators/denominators
+
+Installation
+------------
 
 This package can be installed using devtools with the following:
 
     devtools::install_github(build_vignettes = TRUE, "rparrish/RPamisc")
- 
-## Contributing
 
-- Fork it ( https://github.com/rparrish/RPamisc/fork )
-- Create your feature branch (git checkout -b my-new-feature)
-- Commit your changes (git commit -am 'Add some feature')
-- Push to the branch (git push origin my-new-feature)
-- Create a new Pull Request
+Contributing
+------------
+
+-   Fork it ( <https://github.com/rparrish/RPamisc/fork> )
+-   Create your feature branch (git checkout -b my-new-feature)
+-   Commit your changes (git commit -am 'Add some feature')
+-   Push to the branch (git push origin my-new-feature)
+-   Create a new Pull Request
