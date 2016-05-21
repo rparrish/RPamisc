@@ -21,6 +21,7 @@
 #' @param DSN if TRUE, use a DSN as specified in `resource` parameter instead of a connection string (ie. for Axis PATS: resource = "TSI_32", DSN = TRUE)
 #' @param uid username for connections if necessary. Default is NULL, which will then use the user's system credentials.
 #' @param pwd password for connections that don't use the user's system credentials. Default is NULL.
+#' @param ... arguments to be passed to RODBC::odbcDriverConnect
 #' @return
 #' \item{data}{Query results as a data frame}
 #' \item{fields}{field names}
@@ -32,6 +33,7 @@
 #'
 #'
 #' @examples
+#' \donttest{
 #' ### aliased resource (ie. EDWDBDev or EDWDBProd)
 #' edwSQL(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE",
 #'        resource = "EDWDBDev",
@@ -61,10 +63,13 @@
 #' edwSQL(sql = "SELECT TOP 10 * FROM [All].core_patient_elements",
 #'        resource = "ClinicalAnalytics", file = FALSE, DSN = TRUE,
 #'        uid=uid, pwd=pwd)$data
+#' }
 
 
 
-edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "custom", custom = NULL, file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL,...) {
+edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "custom", custom = NULL, file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL, ...) {
+    requireNamespace("RODBC")
+
     start_time <- Sys.time()
 
     if(DSN) {

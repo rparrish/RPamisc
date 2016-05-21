@@ -33,6 +33,8 @@ edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "custom",
 \item{uid}{username for connections if necessary. Default is NULL, which will then use the user's system credentials.}
 
 \item{pwd}{password for connections that don't use the user's system credentials. Default is NULL.}
+
+\item{...}{arguments to be passed to RODBC::odbcDriverConnect}
 }
 \value{
 \item{data}{Query results as a data frame}
@@ -44,6 +46,7 @@ edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "custom",
 passes a SQL query to the EDW. Commented lines in the .sql file must be preceded by '--'. Blocked comments are not supported.
 }
 \examples{
+\donttest{
 ### aliased resource (ie. EDWDBDev or EDWDBProd)
 edwSQL(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE",
        resource = "EDWDBDev",
@@ -71,6 +74,7 @@ pwd <- getOption("my_pwd")
 edwSQL(sql = "SELECT TOP 10 * FROM [All].core_patient_elements",
        resource = "ClinicalAnalytics", file = FALSE, DSN = TRUE,
        uid=uid, pwd=pwd)$data
+}
 }
 \keyword{sql}
 
