@@ -2,39 +2,77 @@
 % Please edit documentation in R/edwQuery.R
 \name{edwQuery}
 \alias{edwQuery}
-\title{edwquery}
+\title{edwQuery}
 \usage{
-edwQuery(schema, table_name, max = 10, fields = "*", where = "1=1",
-  order = "", na.rm = TRUE, resource = "Phloston")
+edwQuery(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "custom",
+  custom = NULL, DSN = FALSE, uid = NULL, pwd = NULL, ...)
 }
 \arguments{
-\item{schema}{name of the desired schema}
+\item{sql}{- sql query}
 
-\item{table_name}{name of the desired table}
+\item{resource}{- Alias for the database connection
 
-\item{max}{used to return the TOP n records - defaults to 10. Set to FALSE to return all results}
+\describe{
+  \item{custom}{allows for a connection to any database server. The connection string must be passed using the custom parameter.}
+  \item{EDWDBDev}{EDWDBDev}
+  \item{EDWDBProd}{EDWDBProd}
+  \item{Trantor}{EDWDBProd}
+  \item{Phloston}{EDWDBDev}
+  \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
+  \item{Apollo}{Apollo_Spokane}
+  \item{Eva}{\\\\wn1444 Testing}
+}}
 
-\item{fields}{single string of field names separated by commas}
+\item{custom}{full connection string when using 'custom' as the resource.}
 
-\item{where}{additional WHERE clauses}
+\item{DSN}{if TRUE, use a DSN as specified in `resource` parameter instead of a connection string (ie. for Axis PATS: resource = "TSI_32", DSN = TRUE)}
 
-\item{order}{additional ORDER BY clauses}
+\item{uid}{username for connections if necessary. Default is NULL, which will then use the user's system credentials.}
 
-\item{na.rm}{remove columns where all values are NA}
+\item{pwd}{password for connections that don't use the user's system credentials. Default is NULL.}
 
-\item{resource}{Alias for the database connection}
+\item{...}{arguments to be passed to RODBC::odbcDriverConnect}
 }
 \value{
-Currently, a list is returned with the following elements,
-\enumerate{
- \item \code{data}: an R \code{data.frame} of the desired records and columns.
- \item \code{fields}: list of the desired field names.
- \item \code{elapsed_seconds}: the duration of the function.
- \item \code{status_message}: a boolean value indicating if the operation was apparently successful.
-}
+\item{data}{Query results as a data frame}
+\item{fields}{field names}
+\item{elapsed_seconds}{elapsed system time to run the query}
+\item{status_message}{the number of records & variables in the results}
 }
 \description{
-queries EDW using windows credentials
+edwQuery
+}
+\details{
+passes a SQL query to the EDW.
+}
+\examples{
+\donttest{
+### aliased resource (ie. EDWDBDev or EDWDBProd)
+edwQuery(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE",
+       resource = "EDWDBDev")$data
+
+
+### Custom resource - any valid ODBC source. If uid & pwd are not specified, then
+# the Windows (ie. a 'trusted connection' will be used).
+
+edwQuery(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE",
+       resource = "custom",
+       custom = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic")$data
+
+
+### User DSN - need to specify the uid & pwd.
+# This requires a user or system DSN to be installed on your computer.
+# The uid and pwd should not be set in the script or in the console for
+# security reasons. Instead, set them in your .Rprofile file like this:
+options(my_pwd = "mypassword", my_uid = "username")
+
+# then in your script, you can load the uid and pwd like this:
+uid <- getOption("my_uid")
+pwd <- getOption("my_pwd")
+edwQuery(sql = "SELECT TOP 10 * FROM [All].core_patient_elements",
+       resource = "ClinicalAnalytics", DSN = TRUE,
+       uid=uid, pwd=pwd)$data
+}
 }
 \keyword{sql}
 
