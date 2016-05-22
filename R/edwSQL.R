@@ -64,8 +64,12 @@
 
 
 
-edwSQL <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "custom", custom = NULL, file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL, ...) {
+edwSQL <- function (sql=NULL, resource = "custom", custom = NULL, file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL, ...) {
     requireNamespace("RODBC")
+
+    # sanity tests
+    if(missing(sql)) stop("a .sql file must be specified using the sql parameter")
+
 
     start_time <- Sys.time()
 

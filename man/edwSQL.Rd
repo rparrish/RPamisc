@@ -4,9 +4,8 @@
 \alias{edwSQL}
 \title{edwSQL}
 \usage{
-edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "custom",
-  custom = NULL, file = TRUE, DSN = FALSE, uid = NULL, pwd = NULL,
-  ...)
+edwSQL(sql = NULL, resource = "custom", custom = NULL, file = TRUE,
+  DSN = FALSE, uid = NULL, pwd = NULL, ...)
 }
 \arguments{
 \item{sql}{- name of a .sql file}
