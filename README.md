@@ -3,6 +3,11 @@ RPamisc
 
 RPamisc is a package with miscellaneous functions that intend to make using R a little easier.
 
+Vignettes
+---------
+
+-   [EDW Discovery](http://htmlpreview.github.io/?https://github.com/rparrish/RPamisc/blob/master/vignettes/EDW_Discovery.html)
+
 SQL functions
 -------------
 
