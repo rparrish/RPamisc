@@ -9,7 +9,7 @@ edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "custom",
   ...)
 }
 \arguments{
-\item{sql}{- sql query or the path & name of a .sql file}
+\item{sql}{- name of a .sql file}
 
 \item{resource}{- Alias for the database connection
 
@@ -43,23 +43,21 @@ edwSQL(sql = "SELECT TOP 10 * FROM Event_Cath", resource = "custom",
 \item{status_message}{the number of records & variables in the results}
 }
 \description{
-passes a SQL query to the EDW. Commented lines in the .sql file must be preceded by '--'. Blocked comments are not supported.
+passes a SQL query from a separate .sql file to the EDW. Commented lines in the .sql file must be preceded by '--'. Blocked comments are not supported.
 }
 \examples{
 \donttest{
 ### aliased resource (ie. EDWDBDev or EDWDBProd)
-edwSQL(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE",
-       resource = "EDWDBDev",
-       file = FALSE)$data
+mydata <- edwSQL(sql = "SQL/mydata_query.sql",
+       resource = "EDWDBDev")$data
 
 
 ### Custom resource - any valid ODBC source. If uid & pwd are not specified, then
 # the Windows (ie. a 'trusted connection' will be used).
 
-edwSQL(sql = "SELECT TOP 10 * FROM ProvidenceEpic.Finance.HospitalAccountBASE",
+mydata <- edwSQL(sql = "SQL/mydata_query.sql",
        resource = "custom",
-       custom = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic",
-       file = FALSE)$data
+       custom = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic")$data
 
 
 ### User DSN - need to specify the uid & pwd.
@@ -71,9 +69,8 @@ options(my_pwd = "mypassword", my_uid = "username")
 # then in your script, you can load the uid and pwd like this:
 uid <- getOption("my_uid")
 pwd <- getOption("my_pwd")
-edwSQL(sql = "SELECT TOP 10 * FROM [All].core_patient_elements",
-       resource = "ClinicalAnalytics", file = FALSE, DSN = TRUE,
-       uid=uid, pwd=pwd)$data
+mydata <- edwSQL(sql = "SQL/mydata_query.sql",
+       resource = "ClinicalAnalytics", file = FALSE, DSN = TRUE)$data
 }
 }
 \keyword{sql}

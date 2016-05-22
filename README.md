@@ -11,8 +11,9 @@ Vignettes
 SQL functions
 -------------
 
--   `edwSQL()` - primary function for working with the EDW.
--   `edwTables()`, `edwFetch()`, & `edwQuery()` - additional wrapper scripts for RODBC functions that return a list of tables, or table contents. Not as flexible as edwSQL()
+-   `edwSQL()` - primary function for working with SQL databases. Requires a separate .sql file, which is passed to the named resource (alias for a database connection name).
+-   `edwQuery()` - similar function that passes a short SQL snippet instead of using a separate file.
+-   `edwTables()`, `edwFetch()`- additional wrapper scripts for RODBC functions that return a list of tables, or table contents. Not as flexible as edwSQL().
 
 Miscelaneous Functions
 ----------------------
