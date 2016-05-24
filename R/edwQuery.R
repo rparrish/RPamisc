@@ -67,21 +67,20 @@
 
 
 edwQuery <- function (sql="SELECT TOP 10 * FROM Event_Cath", resource = "custom", custom = NULL, DSN=FALSE, uid=NULL, pwd=NULL, ...) {
-    requireNamespace("RODBC")
 
     start_time <- Sys.time()
 
     if(DSN) {
-        conn <- odbcConnect(dsn = resource, uid = uid, pwd = pwd, believeNRows = FALSE)
+        conn <- RODBC::odbcConnect(dsn = resource, uid = uid, pwd = pwd, believeNRows = FALSE)
     } else {
-        conn <- odbcDriverConnect(connection_string(resource = resource, custom = custom, uid = uid, pwd = pwd, ...))
+        conn <- RODBC::odbcDriverConnect(connection_string(resource = resource, custom = custom, uid = uid, pwd = pwd, ...))
     }
 
     sql <- gsub("--.*", "", sql)
     sql <- paste(sql, collapse = " ")
 
-    queryResult <- sqlQuery(conn, sql, stringsAsFactors = FALSE)
-    odbcClose(conn)
+    RODBC::queryResult <- RODBC::sqlQuery(conn, sql, stringsAsFactors = FALSE)
+    RODBC::odbcClose(conn)
     elapsed_seconds <- as.numeric(difftime(Sys.time(), start_time,
                                            units = "secs"))
     status_message <- paste0(format(nrow(queryResult), big.mark = ",",

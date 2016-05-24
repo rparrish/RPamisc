@@ -65,7 +65,6 @@
 
 
 edwSQL <- function (sql=NULL, resource = "custom", custom = NULL, file=TRUE, DSN=FALSE, uid=NULL, pwd=NULL, ...) {
-    requireNamespace("RODBC")
 
     # sanity tests
     if(missing(sql)) stop("a .sql file must be specified using the sql parameter")
@@ -74,9 +73,9 @@ edwSQL <- function (sql=NULL, resource = "custom", custom = NULL, file=TRUE, DSN
     start_time <- Sys.time()
 
     if(DSN) {
-      conn <- odbcConnect(dsn = resource, uid = uid, pwd = pwd, believeNRows = FALSE)
+      conn <- RODBC::odbcConnect(dsn = resource, uid = uid, pwd = pwd, believeNRows = FALSE)
        } else {
-     conn <- odbcDriverConnect(connection_string(resource = resource, custom = custom, uid = uid, pwd = pwd, ...))
+     conn <- RODBC::odbcDriverConnect(connection_string(resource = resource, custom = custom, uid = uid, pwd = pwd, ...))
         }
 
     if (file) {
@@ -85,8 +84,8 @@ edwSQL <- function (sql=NULL, resource = "custom", custom = NULL, file=TRUE, DSN
     sql <- gsub("--.*", "", sql)
     sql <- paste(sql, collapse = " ")
 
-    queryResult <- sqlQuery(conn, sql, stringsAsFactors = FALSE)
-    odbcClose(conn)
+    queryResult <- RODBC::sqlQuery(conn, sql, stringsAsFactors = FALSE)
+    RODBC::odbcClose(conn)
     elapsed_seconds <- as.numeric(difftime(Sys.time(), start_time,
                                            units = "secs"))
     status_message <- paste0(format(nrow(queryResult), big.mark = ",",

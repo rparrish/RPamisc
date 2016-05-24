@@ -16,15 +16,14 @@ edwFetch <- function(resource="Phloston",
                      max = 10
                       ) {
 
-  requireNamespace("RODBC")
 
-  conn <- odbcDriverConnect(connection_string(resource))
+  conn <- RODBC::odbcDriverConnect(connection_string(resource))
 
-  queryResult <- sqlFetch(conn,
+  queryResult <- RODBC::sqlFetch(conn,
                           sqtable = paste(schema, table, sep="."),
                           max=max)
 
-  odbcClose(conn)
+  RODBC::odbcClose(conn)
   queryResult
 
 }

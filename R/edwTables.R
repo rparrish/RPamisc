@@ -16,15 +16,12 @@ edwTables <- function(catalog = NULL,
                        resource="Phloston"
 ) {
 
-  requireNamespace("RODBC")
 
-  conn <- odbcDriverConnect(connection_string(resource))
+  conn <- RODBC::odbcDriverConnect(connection_string(resource))
 
+  queryResult <- RODBC::sqlTables(conn, catalog=catalog, schema=schema, )
 
-
-  queryResult <- sqlTables(conn, catalog=catalog, schema=schema, )
-
-  odbcClose(conn)
+  RODBC::odbcClose(conn)
   queryResult
 
 }
