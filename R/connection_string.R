@@ -26,6 +26,7 @@ connection_string <- function (resource="custom", custom, uid=getOption("Apollo_
                    custom = custom,
                    EDWDBDev = "Driver=SQL Server;Server=EDWDBDev;",
                    EDWDBProd = "Driver=SQL Server;Server=EDWDBProd;",
+                   Work = "Driver=SQL Server;Server=EDWDBDev; Database=Epic_Work;",
                    Trantor = "Driver=SQL Server;Server=EDWDBProd; Database=ProvidenceEpic",
                    Phloston = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic",
                    ClinicalAnalytics = "Driver=SQL Server;Server=wn2591\\PremierPRD; Database=ClinicalAnalytics",
