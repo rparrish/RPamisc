@@ -5,6 +5,7 @@
 #' \describe{
 #'   \item{custom}{custom database connection string, as specified in the custom parameter}
 #'   \item{EDWDBProd}{EDWDBProd}
+#'   \item{Work}{ProvideneEpic_Work}
 #'   \item{Trantor}{EDWDBProd}
 #'   \item{Phloston}{EDWDBDev}
 #'   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
@@ -26,7 +27,7 @@ connection_string <- function (resource="custom", custom, uid=getOption("Apollo_
                    custom = custom,
                    EDWDBDev = "Driver=SQL Server;Server=EDWDBDev;",
                    EDWDBProd = "Driver=SQL Server;Server=EDWDBProd;",
-                   Work = "Driver=SQL Server;Server=EDWDBDev; Database=Epic_Work;",
+                   Work = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic_Work;",
                    Trantor = "Driver=SQL Server;Server=EDWDBProd; Database=ProvidenceEpic",
                    Phloston = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic",
                    ClinicalAnalytics = "Driver=SQL Server;Server=wn2591\\PremierPRD; Database=ClinicalAnalytics",
