@@ -26,7 +26,7 @@ Miscelaneous Functions
 Rmarkdown Templates (RStudio)
 -----------------------------
 
--   "First Template" - Used to compose an short data analysis in PDF. Includes a corporate header logo and prompts for information and a structured outline. Requires LaTeX.
+-   "Full Report" - Used to compose an short data analysis in PDF. Includes a corporate header logo and prompts for information and a structured outline. Requires LaTeX.
 
 Graphics
 --------

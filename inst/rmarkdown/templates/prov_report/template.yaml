@@ -1,0 +1,6 @@
+name: Full Report
+description: >
+  This template contains a logo and an abstract. References are loaded from a
+  BibTex file or a YAML section at the end of the file. Supports landscape or
+  portrait mode and and letter or legal-sized output.
+create_dir: true
