@@ -20,7 +20,7 @@ edwSQL(sql = NULL, resource = "custom", custom = NULL, file = TRUE,
   \item{Phloston}{EDWDBDev}
   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
   \item{Apollo}{Apollo_Spokane}
-  \item{Eva}{\\\\wn1444 Testing}
+  \item{PHC_CA}{PHC Clinical Analytics Database}
 }}
 
 \item{custom}{full connection string when using 'custom' as the resource.}
