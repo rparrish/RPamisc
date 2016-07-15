@@ -8,6 +8,7 @@
 #'   \item{Work}{ProvideneEpic_Work}
 #'   \item{Trantor}{EDWDBProd}
 #'   \item{Phloston}{EDWDBDev}
+#'   \item{PHC_CA}{PHC_CA}
 #'   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
 #'   \item{Apollo}{\\\\wn1444 Apollo_Spokane}
 #'   \item{Eva}{\\\\wn1444 Testing}
@@ -30,6 +31,7 @@ connection_string <- function (resource="custom", custom, uid=getOption("Apollo_
                    Work = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic_Work;",
                    Trantor = "Driver=SQL Server;Server=EDWDBProd; Database=ProvidenceEpic",
                    Phloston = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic",
+                   PHC_CA = "Driver=SQL Server;Server=wn23162; Database=PHC_CA",
                    ClinicalAnalytics = "Driver=SQL Server;Server=wn2591\\PremierPRD; Database=ClinicalAnalytics",
                    Apollo = paste0("Driver=SQL Server;Server=wn57066; Database=Apollo_Spokane; uid=", uid, "; pwd=", pwd),
                    Eva = paste0("Driver=SQL Server;Server=wn1444; Database=Testing; uid=", uid, "; pwd=", pwd)

@@ -15,6 +15,7 @@ connection_string(resource = "custom", custom,
   \item{Work}{ProvideneEpic_Work}
   \item{Trantor}{EDWDBProd}
   \item{Phloston}{EDWDBDev}
+  \item{PHC_CA}{PHC_CA}
   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
   \item{Apollo}{\\\\wn1444 Apollo_Spokane}
   \item{Eva}{\\\\wn1444 Testing}
