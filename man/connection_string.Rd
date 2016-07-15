@@ -18,7 +18,6 @@ connection_string(resource = "custom", custom,
   \item{PHC_CA}{PHC_CA}
   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
   \item{Apollo}{\\\\wn1444 Apollo_Spokane}
-  \item{Eva}{\\\\wn1444 Testing}
 }}
 
 \item{custom}{a valid SQL connection string. used to connect to other resources (ie. a local SQL Express database)}

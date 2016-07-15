@@ -11,7 +11,6 @@
 #'   \item{PHC_CA}{PHC_CA}
 #'   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
 #'   \item{Apollo}{\\\\wn1444 Apollo_Spokane}
-#'   \item{Eva}{\\\\wn1444 Testing}
 #' }
 #' @param custom a valid SQL connection string. used to connect to other resources (ie. a local SQL Express database)
 #' @param uid userid for those resources that require one
@@ -33,8 +32,8 @@ connection_string <- function (resource="custom", custom, uid=getOption("Apollo_
                    Phloston = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic",
                    PHC_CA = "Driver=SQL Server;Server=wn23162; Database=PHC_CA",
                    ClinicalAnalytics = "Driver=SQL Server;Server=wn2591\\PremierPRD; Database=ClinicalAnalytics",
-                   Apollo = paste0("Driver=SQL Server;Server=wn57066; Database=Apollo_Spokane; uid=", uid, "; pwd=", pwd),
-                   Eva = paste0("Driver=SQL Server;Server=wn1444; Database=Testing; uid=", uid, "; pwd=", pwd)
+                   Apollo = paste0("Driver=SQL Server;Server=wn57066; Database=Apollo_Spokane; uid=",
+                                   uid = getOption("Apollo_uid"), "; pwd=", pwd = getOption("Apollo_pwd"))
                    )
   return(result)
 }
