@@ -17,7 +17,7 @@
 #' sort.var <- 1:20
 #' cusumPlot(O, E, sort.var)
 
-cusumPlot <- function(O, E, sort.var, Col="black", title=NULL)
+cusumPlot <- function(O, E, sort.var, ...)
 
 {
     eVar <- E*(1-E) # calculate the eVar
@@ -36,10 +36,9 @@ cusumPlot <- function(O, E, sort.var, Col="black", title=NULL)
     ciH <- c(0,1.96*sqrt(cumsum.eVar))
     sort.var <- c(sort.var[1],sort.var)
 
-    plot(sort.var, diff, type="s", lwd=3, ylim=range(c(diff,ciL,ciH)), col=Col)
+    plot(sort.var, diff, type="s", lwd=3, ylim=range(c(diff,ciL,ciH)), ...)
     abline(h=0, lty=2, col="black")
-    lines(sort.var, ciH, lwd=2, type="s", col=Col)
-    lines(sort.var, ciL, lwd=2, type="s", col=Col)
-    title(title)
+    lines(sort.var, ciH, lwd=2, type="s", ...)
+    lines(sort.var, ciL, lwd=2, type="s", ...)
 
 }### end of cusumPlot() function
