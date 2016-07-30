@@ -6,8 +6,7 @@
 #' @param O vector of observed rate/probability
 #' @param E vector of expected rate /probability
 #' @param sort.var variable to sort to CUSUM
-#' @param Col color for the CUSUM lines
-#' @param title plot title
+#' @param ..., additional parameters passed to base plot & lines functions
 #' @keywords cusum
 #' @export
 #' @examples
@@ -15,7 +14,7 @@
 #' E <- c(0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1, 0.1,
 #'        0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4)
 #' sort.var <- 1:20
-#' cusumPlot(O, E, sort.var)
+#' cusumPlot(O, E, sort.var, xlab = "case #", ylab = "avoided cases", main = "Title", col = "dark blue")
 
 cusumPlot <- function(O, E, sort.var, ...)
 
@@ -31,7 +30,7 @@ cusumPlot <- function(O, E, sort.var, ...)
     cumsum.E <- cumsum(E)
     cumsum.eVar <- cumsum(eVar)
 
-    diff <- c(0, cumsum.O-cumsum.E)
+    diff <- c(0, cumsum.E-cumsum.O)
     ciL <- c(0,-1.96*sqrt(cumsum.eVar))
     ciH <- c(0,1.96*sqrt(cumsum.eVar))
     sort.var <- c(sort.var[1],sort.var)
