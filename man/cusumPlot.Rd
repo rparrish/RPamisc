@@ -4,7 +4,7 @@
 \alias{cusumPlot}
 \title{cusumPlot}
 \usage{
-cusumPlot(O, E, sort.var, Col = "black", title = NULL)
+cusumPlot(O, E, sort.var, ...)
 }
 \arguments{
 \item{O}{vector of observed rate/probability}
@@ -13,9 +13,7 @@ cusumPlot(O, E, sort.var, Col = "black", title = NULL)
 
 \item{sort.var}{variable to sort to CUSUM}
 
-\item{Col}{color for the CUSUM lines}
-
-\item{title}{plot title}
+\item{...,}{additional parameters passed to base plot & lines functions}
 }
 \description{
 displays a straight-forward CUSUM plot
@@ -25,7 +23,7 @@ O <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
 E <- c(0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1, 0.1,
        0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4)
 sort.var <- 1:20
-cusumPlot(O, E, sort.var)
+cusumPlot(O, E, sort.var, xlab = "case #", ylab = "avoided cases", main = "Title", col = "dark blue")
 }
 \keyword{cusum}
 
