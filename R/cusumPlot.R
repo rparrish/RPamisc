@@ -3,41 +3,71 @@
 #'
 #' displays a straight-forward CUSUM plot
 #'
-#' @param O vector of observed rate/probability
-#' @param E vector of expected rate /probability
-#' @param sort.var variable to sort to CUSUM
-#' @param ..., additional parameters passed to base plot & lines functions
+#' @param .data dataframe containing the Observed, Expected and grouping variable, if any
+#' @param O name of column with observed rate/probability
+#' @param E name of column with expected rate /probability
+#' @param group column with grouping variable used to facet plots
+#' @param ylab y-axis label. default is "Cases Avoided"
+#' @param title plot title. default is blank
 #' @keywords cusum
 #' @export
 #' @examples
-#' O <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
-#' E <- c(0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1, 0.1,
-#'        0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4)
-#' sort.var <- 1:20
-#' cusumPlot(O, E, sort.var, xlab = "case #", ylab = "avoided cases", main = "Title", col = "dark blue")
+#' library(dplyr)
+#' library(ggplot2)
+#' oe_data <- data.frame(
+#'      O = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+#'      E = c(0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1, 0.1,
+#'            0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4),
+#'      group = c(rep("Apple", 10), rep("Cherry", 10))
+#'      )
+#'
+#' cusumPlot(oe_data, "O", "E", "group", ylab = "avoided cases", title = "Title")
 
-cusumPlot <- function(O, E, sort.var, ...)
+cusumPlot <- function(.data,
+                      O = "Obs",
+                      E = "Exp",
+                      group = NA,
+                      ylab = "Cases Avoided",
+                      title = "")  {
 
-{
-    eVar <- E*(1-E) # calculate the eVar
-    sort.ind <- order(sort.var) # sort the O,E, eVar and sort.var by sort.var
-    sort.var <- sort.var[sort.ind]
-    O <- O[sort.ind]
-    E <- E[sort.ind]
-    eVar <- eVar[sort.ind]
+    if (!is.na(group)) {
+        plot_data <-
+            data.frame(O = .data[O],
+                       E = .data[E],
+                       group = .data[group]) %>%
+            group_by(group)
 
-    cumsum.O <- cumsum(O)
-    cumsum.E <- cumsum(E)
-    cumsum.eVar <- cumsum(eVar)
+    } else {
+        plot_data <-
+            data.frame(O = .data[O], E = .data[E])
+    }
 
-    diff <- c(0, cumsum.E-cumsum.O)
-    ciL <- c(0,-1.96*sqrt(cumsum.eVar))
-    ciH <- c(0,1.96*sqrt(cumsum.eVar))
-    sort.var <- c(sort.var[1],sort.var)
+    plot_data <-
+        plot_data %>%
+        mutate(index = row_number(),
+               eVar = E * (1 - E),
+               cumsum_O = cumsum(O),
+               cumsum_E = cumsum(E),
+               cumsum_eVar = cumsum(eVar),
+               diff = cumsum_E - cumsum_O,
+               ciL = -1.96 * sqrt(cumsum_eVar),
+               ciH = 1.96 * sqrt(cumsum_eVar)
+        )
 
-    plot(sort.var, diff, type="s", lwd=3, ylim=range(c(diff,ciL,ciH)), ...)
-    abline(h=0, lty=2, col="black")
-    lines(sort.var, ciH, lwd=2, type="s", ...)
-    lines(sort.var, ciL, lwd=2, type="s", ...)
+    p <- ggplot(data = plot_data) +
+         aes(x = index, y = diff) +
+         geom_step() +
+         geom_step(aes(y = ciH)) +
+         geom_step(aes(y = ciL)) +
+         geom_hline(aes(yintercept = 0), linetype = 2) +
+         xlab("") +
+         ylab(ylab) +
+         ggtitle(title) +
+         theme_bw() +
+         theme(axis.text.x=element_blank(),
+              axis.ticks.x=element_blank())
 
-}### end of cusumPlot() function
+    if("group" %in% names(plot_data)) p <- p + facet_wrap(  ~ group)
+    p
+
+}

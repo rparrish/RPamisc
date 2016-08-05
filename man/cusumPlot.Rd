@@ -4,26 +4,36 @@
 \alias{cusumPlot}
 \title{cusumPlot}
 \usage{
-cusumPlot(O, E, sort.var, ...)
+cusumPlot(.data, O = "Obs", E = "Exp", group = NA,
+  ylab = "Cases Avoided", title = "")
 }
 \arguments{
-\item{O}{vector of observed rate/probability}
+\item{.data}{dataframe containing the Observed, Expected and grouping variable, if any}
 
-\item{E}{vector of expected rate /probability}
+\item{O}{name of column with observed rate/probability}
 
-\item{sort.var}{variable to sort to CUSUM}
+\item{E}{name of column with expected rate /probability}
 
-\item{...,}{additional parameters passed to base plot & lines functions}
+\item{group}{column with grouping variable used to facet plots}
+
+\item{ylab}{y-axis label. default is "Cases Avoided"}
+
+\item{title}{plot title. default is blank}
 }
 \description{
 displays a straight-forward CUSUM plot
 }
 \examples{
-O <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
-E <- c(0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1, 0.1,
-       0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4)
-sort.var <- 1:20
-cusumPlot(O, E, sort.var, xlab = "case #", ylab = "avoided cases", main = "Title", col = "dark blue")
+library(dplyr)
+library(ggplot2)
+oe_data <- data.frame(
+     O = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+     E = c(0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1, 0.1,
+           0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4),
+     group = c(rep("Apple", 10), rep("Cherry", 10))
+     )
+
+cusumPlot(oe_data, "O", "E", "group", ylab = "avoided cases", title = "Title")
 }
 \keyword{cusum}
 

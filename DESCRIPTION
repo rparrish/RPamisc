@@ -13,6 +13,7 @@ Suggests:
     RODBC
 Imports:
     dplyr,
+    ggplot2,
     tidyr,
     magrittr,
     RODBC
