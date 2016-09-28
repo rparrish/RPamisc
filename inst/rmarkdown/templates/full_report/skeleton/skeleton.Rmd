@@ -26,10 +26,10 @@ nocite: "@maisel_atrial_2001, @fenner2012a"
 
 ```{r initial_setup, echo=FALSE, message=FALSE, warning=FALSE}
 library(RPamisc)
-library(dplyr)
+library(tidyverse)
 library(knitr)
-library(lubridate)
 library(zoo)
+library(ztable) 
 
 options(scipen = 10)
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, comment = "")
@@ -61,6 +61,29 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, comment = 
 # Results
 ```{r, eval = TRUE}
 knitr::kable(mtcars[1:7,])
+```
+
+```{r, results = 'asis'}
+cgroup=c("A","B","C")
+n.cgroup=c(2,2,1)
+
+rgroup=c("OneToThree","Four","FiveToSix") 
+n.rgroup=c(3,1,2)
+
+z <- ztable(mtcars[1:6, 1:5], 
+            booktabs = TRUE
+       ) %>%
+    addcgroup(
+        cgroup = cgroup,
+        n.cgroup = n.cgroup) %>%
+    addrgroup(
+        rgroup = rgroup,
+        n.rgroup = n.rgroup,
+        cspan.rgroup = 1)
+
+print(z, type = "latex")
+
+
 ```
 
 \newpage  
