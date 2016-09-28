@@ -27,7 +27,8 @@ displays a straight-forward CUSUM plot
 library(dplyr)
 library(ggplot2)
 oe_data <- data.frame(
-     O = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+     O = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+           0, 1, 1, 0, 0, 0, 0, 0, 0, 0),
      E = c(0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1, 0.1,
            0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4),
      group = c(rep("Apple", 10), rep("Cherry", 10))
