@@ -33,14 +33,14 @@ cusumPlot <- function(.data,
 
     if (!is.na(group)) {
         plot_data <-
-            data.frame(O = .data[O],
-                       E = .data[E],
-                       group = .data[group]) %>%
+            data.frame(O = .data[[O]],
+                       E = .data[[E]],
+                       group = .data[[group]]) %>%
             group_by(group)
 
     } else {
         plot_data <-
-            data.frame(O = .data[O], E = .data[E])
+            data.frame(O = .data[[O]], E = .data[[E]])
     }
 
     plot_data <-
