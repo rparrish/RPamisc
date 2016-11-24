@@ -14,9 +14,6 @@ RPamisc is a package with miscellaneous functions that intend to make using R a 
 
 ## SQL functions
  - `edwSQL()` - primary function for working with SQL databases. Requires a separate .sql file, which is passed to the named resource (alias for a database connection name).
- - `edwQuery()` - similar function that passes a short SQL snippet instead of using a separate file. 
- - `edwSave()` - saves a data.frame to an EDW 'Work' database table.
- - `edwTables()`, `edwFetch()`- additional wrapper scripts for RODBC functions that return a list of tables, or table contents. Not as flexible as edwSQL(). 
 
 
 ## Miscelaneous Functions

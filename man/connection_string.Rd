@@ -27,7 +27,7 @@ connection_string(resource = "custom", custom,
 \item{pwd}{password for those resources that require one. Do not include verbatim passwords in scripts.}
 }
 \value{
-Returns a connection string for RODBC
+Returns a connection string for odbc
 }
 \description{
 queries EDW using windows credentials
