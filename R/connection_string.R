@@ -15,7 +15,7 @@
 #' @param custom a valid SQL connection string. used to connect to other resources (ie. a local SQL Express database)
 #' @param uid userid for those resources that require one
 #' @param pwd password for those resources that require one. Do not include verbatim passwords in scripts.
-#' @return Returns a connection string for RODBC
+#' @return Returns a connection string for odbc
 #' @keywords sql
 
 
@@ -30,7 +30,7 @@ connection_string <- function (resource="custom", custom, uid=getOption("Apollo_
                    Work = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic_Work;",
                    Trantor = "Driver=SQL Server;Server=EDWDBProd; Database=ProvidenceEpic",
                    Phloston = "Driver=SQL Server;Server=EDWDBDev; Database=ProvidenceEpic",
-                   PHC_CA = "Driver=SQL Server;Server=wn23162; Database=PHC_CA",
+                   PHC_CA = "Driver=SQL Server;Server=wn23162;",
                    ClinicalAnalytics = "Driver=SQL Server;Server=wn2591\\PremierPRD; Database=ClinicalAnalytics",
                    Apollo = paste0("Driver=SQL Server;Server=wn57066; Database=Apollo_Spokane; uid=",
                                    uid = getOption("Apollo_uid"), "; pwd=", pwd = getOption("Apollo_pwd"))
