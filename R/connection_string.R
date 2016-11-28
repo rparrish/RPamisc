@@ -20,7 +20,7 @@
 #' @param pwd password for those resources that require one. Do not include verbatim passwords in scripts.
 #' @return Returns a connection string for odbc
 #' @keywords sql
-
+#' @export
 
 connection_string <- function (resource="custom", custom, uid=getOption("Apollo_uid"), pwd=getOption("Apollo_pwd")) {
     if(resource == "custom" & is.null(custom)) {

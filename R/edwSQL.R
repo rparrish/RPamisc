@@ -75,7 +75,7 @@ edwSQL <- function (sql = NULL, resource = "custom", custom = NULL, file = TRUE,
         }
         else {
                 .connection_string <- 
-                        RPamisc:::connection_string(resource = resource, 
+                        RPamisc::connection_string(resource = resource, 
                                                                   custom = custom, uid = uid, pwd = pwd, ...)
                 
                 conn <- DBI::dbConnect(odbc::odbc(), .connection_string = .connection_string)
