@@ -10,6 +10,7 @@
 #' @param from default is <rollie.parrish@providence.org>
 #' @param sig append Rollie's signature block? default = TRUE
 #' @param ... additional command
+#' @export
 
 send_email <- function(email_body = NULL, 
          subject = NULL, 
