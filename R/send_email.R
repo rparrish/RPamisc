@@ -4,7 +4,7 @@
 #' sends an HTML formatted email. Supports basic markdown formatting
 #' and adds a default signature
 #'
-#' @param email_body message body in plain text or markdown. Will be converted to HTML
+#' @param body message body in plain text or markdown. Will be converted to HTML
 #' @param subject email subject
 #' @param to list of recipients
 #' @param from default is <rollie.parrish@providence.org>
@@ -12,7 +12,7 @@
 #' @param ... additional command
 #' @export
 
-send_email <- function(email_body = NULL, 
+send.email <- function(body = NULL, 
          subject = NULL, 
          to = "rollie.parrish@providence.org",
          from = "rollie.parrish@providence.org",
@@ -31,7 +31,7 @@ send_email <- function(email_body = NULL,
         body <- 
                 paste("<HTML>",
                       "<span style=\"font-family: Calibri, Helvetica, sans-serif; \">",
-                      commonmark::markdown_html(email_body),
+                      commonmark::markdown_html(body),
                       signature,
                       "</span>",
                       "</BODY></HTML>")
