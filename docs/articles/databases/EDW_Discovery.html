@@ -35,7 +35,7 @@
       <h1>EDW Discovery</h1>
                         <h4 class="author">Rollie Parrish</h4>
             
-            <h4 class="date">2016-11-27</h4>
+            <h4 class="date">2016-11-28</h4>
           </div>
 
     
@@ -50,8 +50,8 @@
 mbm </code></pre></div>
 <pre><code>## Unit: milliseconds
 ##     expr      min       lq     mean   median       uq      max neval
-##     odbc 144.2683 144.2683 144.2683 144.2683 144.2683 144.2683     1
-##  RPamisc 134.8155 134.8155 134.8155 134.8155 134.8155 134.8155     1</code></pre>
+##     odbc 166.6256 166.6256 166.6256 166.6256 166.6256 166.6256     1
+##  RPamisc 404.0153 404.0153 404.0153 404.0153 404.0153 404.0153     1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">con &lt;-<span class="st">  </span><span class="kw">dbConnect</span>(odbc::<span class="kw">odbc</span>(), <span class="st">"PHC_CA"</span>)
 <span class="kw">dbListTables</span>(con)
 
