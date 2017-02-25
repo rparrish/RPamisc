@@ -3,4 +3,5 @@
 language: R
 sudo: false
 cache: packages
-r_github_packages: rstats-db/odbc
+r_github_packages:
+  - rstats-db/odbc
