@@ -7,6 +7,7 @@ cache: packages
 # next section comes from:
 #https://www.r-bloggers.com/installing-sql-server-odbc-drivers-on-ubuntu-in-travis-ci/
 before_install:
+  - sudo apt-get update
   - wget https://download.microsoft.com/download/2/E/5/2E58F097-805C-4AB8-9FC6-71288AB4409D/msodbcsql-13.0.0.0.tar.gz -P ..
   - tar xvzf ../msodbcsql-13.0.0.0.tar.gz -C ..
   - sed -i '14d' ../msodbcsql-13.0.0.0/build_dm.sh
