@@ -1,5 +1,23 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
-sudo: false
+sudo: true
 cache: packages
+
+# next section comes from:
+#https://www.r-bloggers.com/installing-sql-server-odbc-drivers-on-ubuntu-in-travis-ci/
+before_install:
+  - wget https://download.microsoft.com/download/2/E/5/2E58F097-805C-4AB8-9FC6-71288AB4409D/msodbcsql-13.0.0.0.tar.gz -P ..
+  - tar xvzf ../msodbcsql-13.0.0.0.tar.gz -C ..
+  - sed -i '14d' ../msodbcsql-13.0.0.0/build_dm.sh
+  - sed -i '/tmp=/ctmp=/tmp/odbcbuilds'  ../msodbcsql-13.0.0.0/build_dm.sh
+  - ../msodbcsql-13.0.0.0/build_dm.sh --accept-warning
+  - cd /tmp/odbcbuilds/unixODBC-2.3.1
+  - sudo make install
+  - cd $TRAVIS_BUILD_DIR
+  - sudo apt-get install libgss3 -y
+  - ../msodbcsql-13.0.0.0/install.sh verify
+  - cd ../msodbcsql-13.0.0.0/
+  - sudo ./install.sh install --accept-license
+  - cd $TRAVIS_BUILD_DIR
+  - odbcinst -q -d -n "ODBC Driver 13 for SQL Server"
