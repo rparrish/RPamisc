@@ -33,7 +33,7 @@ edwSQL(sql = NULL, resource = "custom", custom = NULL, file = TRUE,
 
 \item{pwd}{password for connections that don't use the user's system credentials. Default is NULL.}
 
-\item{...}{arguments to be passed to RODBC::odbcDriverConnect}
+\item{...}{additional arguments. not used.}
 }
 \value{
 \item{data}{Query results as a data frame}

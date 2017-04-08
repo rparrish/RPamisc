@@ -16,6 +16,9 @@ connection_string(resource = "custom", custom,
   \item{Trantor}{EDWDBProd}
   \item{Phloston}{EDWDBDev}
   \item{PHC_CA}{PHC_CA}
+  \item{PHC_Shared}{PHC_Shared}
+  \item{PHC_Training}{PHC_Training}
+  \item{eNICQ}{eNICQ}
   \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
   \item{Apollo}{\\\\wn1444 Apollo_Spokane}
 }}
@@ -27,7 +30,7 @@ connection_string(resource = "custom", custom,
 \item{pwd}{password for those resources that require one. Do not include verbatim passwords in scripts.}
 }
 \value{
-Returns a connection string for RODBC
+Returns a connection string for odbc
 }
 \description{
 queries EDW using windows credentials

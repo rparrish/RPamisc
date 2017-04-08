@@ -8,6 +8,7 @@
 #' @param num Vector of numerators
 #' @param den vector of denominators
 #' @author Rollie Parrish
+#' @importFrom stats prop.test
 #' @export
 
 
