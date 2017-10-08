@@ -34,14 +34,17 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, comment = 
 
 # Prompt
 
- - What is being requested? Purpose or use? [@koniari_pharmacologic_2010]
+_Analysis_  
+ - What is being requested? Purpose or use? 
  - Population of interest - Inclusions & Exclusions 
- - Intervention or comparision groups?[@koniari_pharmacologic_2010]
+ - Intervention or comparision groups?
  - Outcomes/Variables?
  - Date Ranges? 
 
- 
-# Sources
+_Quality Improvement: AIM Statement_  
+ - What are we trying to accomplish?
+ - How will we know that a change is an improvement?
+ - What changes can we make that will result in improvement?
 
 
 ```{r load_data}
