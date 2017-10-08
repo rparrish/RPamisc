@@ -21,7 +21,7 @@
 #' @param DSN if TRUE, use a DSN as specified in `resource` parameter instead of a connection string (ie. for Axis PATS: resource = "TSI_32", DSN = TRUE)
 #' @param uid username for connections if necessary. Default is NULL, which will then use the user's system credentials.
 #' @param pwd password for connections that don't use the user's system credentials. Default is NULL.
-#' @param ... additional arguments. not used. 
+#' @param ... additional arguments. not used.
 #' @return
 #' \item{data}{Query results as a data frame}
 #' \item{fields}{field names}
@@ -64,35 +64,57 @@
 
 
 
-edwSQL <- function (sql = NULL, resource = "custom", custom = NULL, file = TRUE, 
-                    DSN = FALSE, uid = NULL, pwd = NULL, ...) 
+edwSQL <- function (sql = NULL, resource = "custom", custom = NULL, file = TRUE,
+                    DSN = FALSE, uid = NULL, pwd = NULL, ...)
 {
-        if (missing(sql)) 
-                stop("a .sql file must be specified using the sql parameter")
-        start_time <- Sys.time()
+    if (missing(sql))
+        stop("a .sql file must be specified using the sql parameter")
+    start_time <- Sys.time()
+    if (Sys.info()["sysname"] == "Windows") {
         if (DSN) {
-                conn <- DBI::dbConnect(odbc::odbc(), dsn = resource)
+
+            conn <- DBI::dbConnect(odbc::odbc(), dsn = resource)
         }
         else {
-                .connection_string <- 
-                        RPamisc::connection_string(resource = resource, 
-                                                                  custom = custom, uid = uid, pwd = pwd, ...)
-                
-                conn <- DBI::dbConnect(odbc::odbc(), .connection_string = .connection_string)
+            .connection_string <-
+                RPamisc::connection_string(resource = resource,
+                                           custom = custom, uid = uid, pwd = pwd, ...)
+            conn <- DBI::dbConnect(odbc::odbc(), .connection_string = .connection_string)
         }
-        if (file) {
-                sql <- readLines(sql, ok = TRUE, warn = FALSE)
+    }
+
+    if (Sys.info()["sysname"] == "Linux") {
+        if(Sys.getenv("DBUSERNAME") == "") {
+            uid = rstudioapi::askForPassword("Database username")
+        } else {
+            uid = Sys.getenv("DBUSERNAME")
         }
-        sql <- gsub("--.*", "", sql)
-        sql <- paste(sql, collapse = " ")
-        queryResult <- DBI::dbGetQuery(conn, sql)
-        DBI::dbDisconnect(conn)
-        elapsed_seconds <- as.numeric(difftime(Sys.time(), start_time, 
-                                               units = "secs"))
-        status_message <- paste0(format(nrow(queryResult), big.mark = ",", 
-                                        scientific = FALSE, trim = TRUE), " records and ", format(length(queryResult), 
-                                                                                                  big.mark = ",", scientific = FALSE, trim = TRUE), " columns were read from ", 
-                                 resource, " in ", round(elapsed_seconds, 2), " seconds.")
-        return(list(data = queryResult, fields = names(queryResult), 
-                    elapsed_seconds = elapsed_seconds, status_message = status_message))
+
+        if(Sys.getenv("DBPASSWORD") == "") {
+            pwd = rstudioapi::askForPassword("Database password")
+        } else {
+            pwd = Sys.getenv("DBPASSWORD")
+        }
+        conn <- DBI::dbConnect(odbc::odbc(),
+                               dsn = resource,
+                               uid = uid,
+                               pwd = pwd
+        )
+    }
+
+    if (file) {
+        sql <- readLines(sql, ok = TRUE, warn = FALSE)
+    }
+    sql <- gsub("--.*", "", sql)
+    sql <- paste(sql, collapse = " ")
+    queryResult <- DBI::dbGetQuery(conn, sql)
+    DBI::dbDisconnect(conn)
+    elapsed_seconds <- as.numeric(difftime(Sys.time(), start_time,
+                                           units = "secs"))
+    status_message <- paste0(format(nrow(queryResult), big.mark = ",",
+                                    scientific = FALSE, trim = TRUE), " records and ", format(length(queryResult),
+                                                                                              big.mark = ",", scientific = FALSE, trim = TRUE), " columns were read from ",
+                             resource, " in ", round(elapsed_seconds, 2), " seconds.")
+    return(list(data = queryResult, fields = names(queryResult),
+                elapsed_seconds = elapsed_seconds, status_message = status_message))
 }
