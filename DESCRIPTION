@@ -5,7 +5,7 @@ Title: This package contains miscellaneous functions that intend to make using R
 Version: 0.2
 Date: 2016-11-24
 Authors@R: c(person("Rollie", "Parrish", email = "rparrish@flightweb.com", role = c("aut", "cre")), person("Thomas", "Huang", role = "ctb"), person("Glenn", "Doherty", role = "ctb"))
-Description:  It incluces functions for sql queries, data analysis and graphics.
+Description:  It includes functions for sql queries, data analysis and graphics.
 License: MIT + file LICENSE
 Depends: R (>= 2.10)
 VignetteBuilder: knitr
