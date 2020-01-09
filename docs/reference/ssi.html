@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • RPamisc</title>
+<title>SSI. — ssi • RPamisc</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,10 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="SSI. — ssi" />
+<meta property="og:description" content="A fake dataset containing the observed and expected 
+risk of SSI." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -54,7 +57,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -101,39 +104,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      
+    <h1>SSI.</h1>
+    
+    <div class="hidden name"><code>ssi.Rd</code></div>
     </div>
 
-    <div id="rpamisc-0-2-2016-11-28" class="section level1">
-<h1 class="page-header">
-<a href="#rpamisc-0-2-2016-11-28" class="anchor"></a>RPamisc 0.2 (2016-11-28)</h1>
-<ul>
-<li>migrated to <code>odbc</code> package for SQL handling (5-10 times faster)</li>
-<li>deprecated edwFetch(), edwQuery(), edwSave(), and edwTables()</li>
-<li>added RPamisc home page</li>
-<li>added <code>send_email</code>, used to send HTML-formated emails with attachments</li>
-</ul>
-</div>
-    <div id="rpamisc-0-1-2014-04-30" class="section level1">
-<h1 class="page-header">
-<a href="#rpamisc-0-1-2014-04-30" class="anchor"></a>RPamisc 0.1 (2014-04-30)</h1>
-<ul>
-<li>Initial release</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>A fake dataset containing the observed and expected 
+risk of SSI.</p>
+    </div>
 
+    <pre class="usage"><span class='no'>ssi</span></pre>
+
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>A data frame with 5975 rows and 5 variables:</p><dl class='dl-horizontal'>
+  <dt>surgery_date</dt><dd><p>date of surgery</p></dd>
+  <dt>procCode</dt><dd><p>NHSN Procedure Code: COLO = Colon surgery, HPRO = Hip Prosthesis, 
+  KPRO = Knee Prosthesis, HYST = Abdominal Hysterectomy</p></dd>
+  <dt>surgeon_name</dt><dd><p>Fake Surgeon name (from `randomNames` package)</p></dd>
+  <dt>observed</dt><dd><p>Observed SSI. 1 = Yes, 0 = No</p></dd>
+  <dt>expected</dt><dd><p>Risk of SSI.</p></dd>
+  ...
+
+</dl>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#rpamisc-0-2-2016-11-28">0.2</a></li>
-        <li><a href="#rpamisc-0-1-2014-04-30">0.1</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#format">Format</a></li>
+    </ul>
 
+  </div>
 </div>
 
 
