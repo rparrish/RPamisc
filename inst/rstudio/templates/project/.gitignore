@@ -1,0 +1,16 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+.Rprofile 
+
+*.Rproj
+
+/Data
+/Data/*
+*cache/
+
+*.pdf
+*.tex
+*.html
