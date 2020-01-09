@@ -13,7 +13,12 @@ RPamisc is a package with miscellaneous functions that intend to make using R a 
 
 # Installation  
 
-This package can be installed using devtools with the following:
+This package can be installed from GitHub Enterprise using [psjtools](https://git.providence.org/pages/Rollie-Parrish/psjtools/) with the following:
+
+    psjtools::install_github_prov("Rollie-Parrish/RPamisc")
+
+
+Alternatively, this package can be installed from GitHub.com using [devtools](https://devtools.r-lib.org/) with the following:
 
     devtools::install_github("rparrish/RPamisc")
  
