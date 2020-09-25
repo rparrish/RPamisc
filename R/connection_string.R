@@ -38,7 +38,7 @@ connection_string <- function (resource="custom", custom, uid=getOption("Apollo_
                    PHC_Training = "Driver=SQL Server;Server=wn23162; Database=PHC_Training",
                    eNICQ = "Driver=SQL Server;Server=wnc1479av\\prodsql2k8a; Database=eNICQ",
                    ClinicalAnalytics = "Driver=SQL Server;Server=wn2591\\PremierPRD; Database=ClinicalAnalytics",
-                   Apollo = paste0("Driver=SQL Server;Server=wn57066; Database=Apollo_Spokane; uid=",
+                   Apollo = paste0("Driver=SQL Server;Server=wn66259; Database=Apollo_Spokane; uid=",
                                    uid = getOption("Apollo_uid"), "; pwd=", pwd = getOption("Apollo_pwd"))
                    )
   return(result)
