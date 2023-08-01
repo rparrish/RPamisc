@@ -41,12 +41,21 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# Data directory
-/Data/
-/Data
+# Data directories
 /Data/*
+/Data
+*/Data/*
 
-# Rendered files
-*.pdf
-*.tex
-*.html
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+.Rprofile
+
+*.Rproj
+
+
+# Exceptions
+# use ! before the file path to override an exclusion above
+!/Data/name_of_file_to_override_exclusion.csv
