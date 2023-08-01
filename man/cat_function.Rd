@@ -13,4 +13,3 @@ cat_function(love = TRUE)
 This function allows you to express your love of cats.
 }
 \keyword{cats}
-

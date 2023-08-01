@@ -4,36 +4,26 @@
 \alias{connection_string}
 \title{connection_string}
 \usage{
-connection_string(resource = "custom", custom,
-  uid = getOption("Apollo_uid"), pwd = getOption("Apollo_pwd"))
+connection_string(resource = "custom", custom, uid = NULL, pwd = NULL)
 }
 \arguments{
 \item{resource}{- Alias for the database connection
 \describe{
   \item{custom}{custom database connection string, as specified in the custom parameter}
-  \item{EDWDBProd}{EDWDBProd}
-  \item{Work}{ProvideneEpic_Work}
-  \item{Trantor}{EDWDBProd}
-  \item{Phloston}{EDWDBDev}
-  \item{PHC_CA}{PHC_CA}
-  \item{PHC_Shared}{PHC_Shared}
-  \item{PHC_Training}{PHC_Training}
-  \item{eNICQ}{eNICQ}
-  \item{ClinicalAnalytics}{\\\\wn2591\\PremierPRD}
-  \item{Apollo}{\\\\wn1444 Apollo_Spokane}
+  \item{Trantor}{server_1_name}
+  \item{Phloston}{server_2_name}
 }}
 
-\item{custom}{a valid SQL connection string. used to connect to other resources (ie. a local SQL Express database)}
+\item{custom}{a valid SQL connection string. used to connect to other resources (ie. a local DuckDB database)}
 
 \item{uid}{userid for those resources that require one}
 
-\item{pwd}{password for those resources that require one. Do not include verbatim passwords in scripts.}
+\item{pwd}{password for those resources that require one. Never include verbatim passwords in scripts.}
 }
 \value{
-Returns a connection string for odbc
+Returns a connection string for odbc()
 }
 \description{
-queries EDW using windows credentials
+Used to query a SQL Server instance using windows credentials
 }
 \keyword{sql}
-

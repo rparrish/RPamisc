@@ -4,11 +4,22 @@
 \alias{dotplot.errors}
 \title{dotplot.errors}
 \usage{
-dotplot.errors(x, myTheme = simpleTheme(pch = 19, col = 1),
-  qlabel = "Estimated rate", add.text.to.qlabel = "", type.bar = "CI",
-  conf.level = 0.95, end.length = 0.05, reorder.groups = TRUE,
-  reordering = "decreasing", label.define = list(), reference.line = NULL,
-  bar.color = 1, horizontal = TRUE, ...)
+dotplot.errors(
+  x,
+  myTheme = simpleTheme(pch = 19, col = 1),
+  qlabel = "Estimated rate",
+  add.text.to.qlabel = "",
+  type.bar = "CI",
+  conf.level = 0.95,
+  end.length = 0.05,
+  reorder.groups = TRUE,
+  reordering = "decreasing",
+  label.define = list(),
+  reference.line = NULL,
+  bar.color = 1,
+  horizontal = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{dataframe}
@@ -45,4 +56,3 @@ build a vertical dotplot with error bars
 \author{
 Rollie Parrish
 }
-

@@ -2,10 +2,9 @@
 
 #' create a project_template
 #'
-#' @param project_path 
-#' @param ... 
+#' @param project_path Folder where project will be located
+#' @param ... parameters passed through to other functions
 #'
-#' @return
 #' @export
 #'
 

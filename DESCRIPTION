@@ -2,12 +2,12 @@ Package: RPamisc
 Type: Package
 Title: This package contains miscellaneous functions that intend to make using R
     a little easier
-Version: 0.2
-Date: 2016-11-24
+Version: 0.3
+Date: 2023-08-01
 Authors@R: c(person("Rollie", "Parrish", email = "rparrish@flightweb.com", role = c("aut", "cre")), person("Thomas", "Huang", role = "ctb"), person("Glenn", "Doherty", role = "ctb"))
-Description:  It includes functions for sql queries, data analysis and graphics.
+Description: It includes functions for sql queries, data analysis and graphics.
 License: MIT + file LICENSE
-Depends: R (>= 2.10)
+Depends: R (>= 4.0)
 VignetteBuilder: knitr
 Suggests:
     knitr,
@@ -20,4 +20,4 @@ Imports:
     ggplot2,
     tidyr,
     magrittr
-RoxygenNote: 5.0.1
+RoxygenNote: 7.2.3

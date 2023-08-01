@@ -20,4 +20,3 @@ based on numerators/denominators
 \author{
 Rollie Parrish
 }
-

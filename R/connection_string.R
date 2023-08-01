@@ -7,9 +7,10 @@
 #'   \item{Trantor}{server_1_name}
 #'   \item{Phloston}{server_2_name}
 #' } 
-#' #' @param custom a valid SQL connection string. used to connect to other resources (ie. a local DuckDB database) 
-#' #' @param uid userid for those resources that require one 
-#' #' @param pwd password for those resources that require one. Never include verbatim passwords in scripts.
+#' @param custom a valid SQL connection string. used to connect to other resources (ie. a local DuckDB database) 
+#' @param uid userid for those resources that require one 
+#' @param pwd password for those resources that require one. Never include verbatim passwords in scripts.
+#' 
 #' @return Returns a connection string for odbc()
 #' @keywords sql
 #' @export

@@ -4,8 +4,14 @@
 \alias{cusumPlot}
 \title{cusumPlot}
 \usage{
-cusumPlot(.data, O = "Obs", E = "Exp", group = NA,
-  ylab = "Cases Avoided", title = "")
+cusumPlot(
+  .data,
+  O = "Obs",
+  E = "Exp",
+  group = NA,
+  ylab = "Cases Avoided",
+  title = ""
+)
 }
 \arguments{
 \item{.data}{dataframe containing the Observed, Expected and grouping variable, if any}
@@ -37,4 +43,3 @@ oe_data <- data.frame(
 cusumPlot(oe_data, "O", "E", "group", ylab = "avoided cases", title = "Title")
 }
 \keyword{cusum}
-
