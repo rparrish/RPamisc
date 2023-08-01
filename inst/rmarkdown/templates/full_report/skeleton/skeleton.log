@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.29)  31 JUL 2023 19:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.29)  31 JUL 2023 19:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -453,24 +453,24 @@ File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 ) (./skeleton.aux)
 \openout1 = `skeleton.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -505,7 +505,7 @@ LaTeX Font Info:    ... okay on input line 124.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 124.
+Package hyperref Info: Link coloring ON on input line 125.
 (./skeleton.out) (./skeleton.out)
 \@outlinefile=\write3
 \openout3 = `skeleton.out'.
@@ -524,48 +524,48 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 \c@mv@tabular=\count296
 \c@mv@boldtabular=\count297
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 126.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 127.
 (/home/rparrish/.TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 126.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 127.
 (/home/rparrish/.TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 126.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 127.
 (/home/rparrish/.TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 126.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 127.
 (/home/rparrish/.TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 126.
+(Font)              <12> on input line 127.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 126.
+(Font)              <8> on input line 127.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 126.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 126.
+(Font)              <6> on input line 127.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 127.
 (/home/rparrish/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 126.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 127.
 (/home/rparrish/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for T1+DejaVuSans-TLF on input line 130.
+LaTeX Font Info:    Trying to load font information for T1+DejaVuSans-TLF on input line 134.
 (/home/rparrish/.TinyTeX/texmf-dist/tex/latex/dejavu/T1DejaVuSans-TLF.fd
 File: T1DejaVuSans-TLF.fd 2011/10/30 Font definitions for T1/DejaVuSans-TLF.
 )
-LaTeX Font Info:    Trying to load font information for TS1+Crlt-OsF on input line 137.
+LaTeX Font Info:    Trying to load font information for TS1+Crlt-OsF on input line 139.
 (/home/rparrish/.TinyTeX/texmf-dist/tex/latex/carlito/TS1Crlt-OsF.fd
 File: TS1Crlt-OsF.fd 2022/10/05 (autoinst) Font definitions for TS1/Crlt-OsF.
 )
 <logo-orig.png, id=29, 321.2pt x 71.26625pt>
 File: logo-orig.png Graphic file (type png)
 <use logo-orig.png>
-Package pdftex.def Info: logo-orig.png  used on input line 172.
+Package pdftex.def Info: logo-orig.png  used on input line 159.
 (pdftex.def)             Requested size: 142.26378pt x 31.56493pt.
 [1{/home/rparrish/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/rparrish/.TinyTeX/texmf-dist/fonts/enc/dvips/carlito/crlt_hsqwq5.enc}
 
@@ -583,21 +583,21 @@ LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-06-30>
  ***********
 Package rerunfilecheck Info: File `skeleton.out' has not changed.
-(rerunfilecheck)             Checksum: 920DA90751315C845F915A53AE5922A9;577.
+(rerunfilecheck)             Checksum: 6D55742BF712390CF3CC4579D769C138;507.
  ) 
 Here is how much of TeX's memory you used:
- 12385 strings out of 477197
- 193319 string characters out of 5813505
- 1927244 words of memory out of 5000000
- 33110 multiletter control sequences out of 15000+600000
- 627995 words of font info for 69 fonts, out of 8000000 for 9000
+ 12391 strings out of 477197
+ 193436 string characters out of 5813505
+ 1926244 words of memory out of 5000000
+ 33115 multiletter control sequences out of 15000+600000
+ 636020 words of font info for 71 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,15n,79p,242b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/rparrish/.TinyTeX/texmf-dist/fonts/type1/google/carlito/Crlt-Italic.pfb></home/rparrish/.TinyTeX/texmf-dist/fonts/type1/google/carlito/Crlt-Regular.pfb></home/rparrish/.TinyTeX/texmf-dist/fonts/type1/public/dejavu/DejaVuSans-Bold.pfb>
-Output written on skeleton.pdf (2 pages, 98980 bytes).
+</home/rparrish/.TinyTeX/texmf-dist/fonts/type1/google/carlito/Crlt-Bold.pfb></home/rparrish/.TinyTeX/texmf-dist/fonts/type1/google/carlito/Crlt-Italic.pfb></home/rparrish/.TinyTeX/texmf-dist/fonts/type1/google/carlito/Crlt-Regular.pfb></home/rparrish/.TinyTeX/texmf-dist/fonts/type1/public/dejavu/DejaVuSans-Bold.pfb>
+Output written on skeleton.pdf (2 pages, 110328 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  15 named destinations out of 1000 (max. 500000)
  54 words of extra memory for PDF output out of 10000 (max. 10000000)
 

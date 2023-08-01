@@ -71,6 +71,7 @@ _Quality Improvement: AIM Statement_
 
 ```{r, eval = FALSE}
 gtcars %>%
+    knitr::kable()
     
 ```
 

@@ -1,4 +1,4 @@
-\usepackage[scaled]{helvet}
+%\usepackage[scaled]{helvet}
 % \setlength{\droptitle}{-5em}
 % \pretitle{\begin{flushleft}\LARGE}
 % \posttitle{\end{flushleft}\vspace{-2em}}
@@ -10,15 +10,31 @@
 \usepackage{graphicx}
 \usepackage{colortbl}
 \usepackage{booktabs}
-\renewcommand\familydefault{\sfdefault}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{xcolor}
+%\usepackage[affil-it]{authblk}
+\usepackage[default]{carlito}
+\usepackage{dejavu}
+\definecolor{navy}{HTML}{003F72}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\color{navy}}
+%\titleformat*{\section}{\Large\bfseries\sffamily\color{navy}}
+%\titleformat{\section}
+%{\color{navy}\normalfont\Large\bfseries}
+%{\color{navy}\thesection}{1em}{}
+%\renewcommand\familydefault{\sfdefault}
 \usepackage{fancyhdr}
 \fancypagestyle{plain}{
-\setlength\headheight{28pt}
-\fancyhead[L]{}
-\fancyhead[R]{\includegraphics[width=5cm]{logo-orig.png}}
+\setlength\headheight{36pt}
+\fancyhead[L]{\includegraphics[width=5cm]{logo-orig.png}}
 \fancyfoot[C]{Confidential report for Quality Improvement purposes}}
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
+\fancyhead[LE,RO]{\myheader}
 \fancyfoot[CO,CE]{Confidential report for Quality Improvement purposes}
 \fancyfoot[LE,RO]{\thepage}
+
+
+

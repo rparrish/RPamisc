@@ -178,6 +178,11 @@ $else$
   \predate{}\postdate{}
 $endif$
 
+$if(header-title)$
+  \newcommand{\myheader}{$header-title$}
+$else$
+$endif$
+
 $for(header-includes)$
 $header-includes$
 $endfor$
