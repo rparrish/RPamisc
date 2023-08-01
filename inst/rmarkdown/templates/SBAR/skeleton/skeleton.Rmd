@@ -1,0 +1,106 @@
+---
+title: "Untitled"
+#subtitle: "PACT Oversight"
+header-title: "Spokane VA HCS"
+author: 
+ - "Author1 first and last name <my.email@example.com>"
+ - "Performance Measures Manager - Quality, Safety and Value"
+date: "`r format(as.Date(Sys.Date()), '%B %d, %Y')`"
+header-includes:
+- \usepackage[T1]{fontenc}
+output: 
+    pdf_document:
+      template: default.tex
+      includes:
+        in_header: header.tex
+      highlight: tango
+      #toc: TRUE
+# Refer to pandoc documentation for more options:
+# http://pandoc.org/README.html#templates
+fontsize: 11pt
+geometry: margin=1in #,legalpaper
+classoption: twoside # portrait or landscape
+mainfont: DeJavu #carlito
+sansfont: Carlito #dejavu
+---
+
+```{r initial_setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(RPamisc)
+library(tidyverse)
+library(knitr)
+
+options(scipen = 10)
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, comment = "")
+
+```
+
+# Prompt
+
+_Analysis_  
+
+ - What is being requested? Purpose or use? 
+ - Population of interest - Inclusions & Exclusions 
+ - Intervention or comparision groups?
+ - Outcomes/Variables?
+ - Date Ranges? 
+
+
+_Quality Improvement: AIM Statement_  
+
+ - What are we trying to accomplish?
+ - How will we know that a change is an improvement?
+ - What changes can we make that will result in improvement?
+
+
+```{r load_data}
+
+#.hem_onc_sedation_raw <- tbl_df(edwSQL("../SQL/WSH Hem Onc Sedation.sql", resource="Trantor")$data)
+
+```
+
+# Situation
+
+
+
+# Background
+
+
+
+# Assessment 
+
+```{r, eval = FALSE}
+gtcars %>%
+    
+```
+
+
+# Recommendations
+
+
+
+\newpage  
+# Data Sources 
+
+- CDW
+- Other
+
+```{r}
+commit <- gert::git_info()$commit 
+
+repo_url <- 
+    usethis::git_remotes() %>%
+    stringr::str_replace(":", "/") %>%
+    stringr::str_replace("git@", "https://") %>%
+    stringr::str_replace("\\.git$", paste0("/tree/", commit)) 
+
+repo_label <- str_replace(repo_url, "/tree.*$", "")
+
+
+```
+
+The code and supporting resources for this report are located at [`r repo_label`](`r repo_url`).  
+
+Generated `r Sys.time()`
+
+
