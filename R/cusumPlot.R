@@ -10,6 +10,10 @@
 #' @param ylab y-axis label. default is "Cases Avoided"
 #' @param title plot title. default is blank
 #' @keywords cusum
+#' @importFrom magrittr `%>%`
+#' @importFrom dplyr group_by mutate row_number
+#' @import ggplot2
+#' @import lattice
 #' @export
 #' @examples
 #' library(dplyr)
@@ -28,8 +32,11 @@ cusumPlot <- function(.data,
                       O = "Obs",
                       E = "Exp",
                       group = NA,
-                      ylab = "Cases Avoided",
+                      ylab = "Cases Avoided", 
                       title = "")  {
+    
+    # takes care of 'no visible binding for global variable warnings
+    eVar <- cumsum_E <- cumsum_O <- cumsum_eVar <- ciH <- ciL <- index <- NULL
 
     if (!is.na(group)) {
         plot_data <-

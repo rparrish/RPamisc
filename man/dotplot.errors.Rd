@@ -4,7 +4,7 @@
 \alias{dotplot.errors}
 \title{dotplot.errors}
 \usage{
-dotplot.errors(
+\method{dotplot}{errors}(
   x,
   myTheme = simpleTheme(pch = 19, col = 1),
   qlabel = "Estimated rate",

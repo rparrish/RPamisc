@@ -18,6 +18,7 @@ Suggests:
 Imports:
     dplyr,
     ggplot2,
+    lattice,
     tidyr,
     magrittr
 RoxygenNote: 7.2.3

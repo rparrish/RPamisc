@@ -50,7 +50,7 @@ project_template_VA <- function(project_path, ...) {
     fs::dir_create(fs::path(project_path, "SQL"))
       
     
-    # files to copy 
+    # .keep files (empty directories in git repo) 
     fs::file_create(fs::path(project_path, "Data",".keep"))
     fs::file_create(fs::path(project_path, "Data", "RawData", ".keep"))
     fs::file_create(fs::path(project_path, "Data", "FinalData", ".keep"))
@@ -59,9 +59,11 @@ project_template_VA <- function(project_path, ...) {
     fs::file_create(fs::path(project_path, "Reports",".keep"))
     fs::file_create(fs::path(project_path, "Resources",".keep"))
     fs::file_create(fs::path(project_path, "SQL",".keep"))
-    
+   
+    # copy files 
     fs::file_copy(fs::path_package("RPamisc", "rstudio", "templates", "project", "README.md"), project_path)
-    fs::file_copy(fs::path_package("RPamisc", "rstudio", "templates", "project", "Data", "README.md"), project_path)
+    fs::file_copy(fs::path_package("RPamisc", "rstudio", "templates", "project", "config.yml"), project_path)
+    fs::file_copy(fs::path_package("RPamisc", "rstudio", "templates", "project", "Data", "README.md"), fs::path(project_path, "Data"))
     fs::file_copy(fs::path_package("RPamisc", "rstudio", "templates", "project", ".gitignore"), project_path)
    
 }

@@ -1,9 +1,15 @@
+# unreleased 
+
+- work in progress 
+- fixed 'global environment' warnings
+
+
 # RPamisc 0.3 (2023-08-01)
 
 - removed Providence-related information
 - removed deprecated functions
 - updated PDF templates
-- added SBAR templatge
+- added SBAR template
 
 # RPamisc 0.2 (2016-11-28)
 
