@@ -1,0 +1,5 @@
+url: http://rparrish.github.io/RPamisc/
+template:
+  bootstrap: 5
+  bootswatch: flatly
+
