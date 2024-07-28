@@ -8,17 +8,21 @@ Authors@R: c(person("Rollie", "Parrish", email = "rparrish@flightweb.com", role 
 Description: It includes functions for sql queries, data analysis and graphics.
 License: MIT + file LICENSE
 Depends: R (>= 4.0)
-VignetteBuilder: knitr
+VignetteBuilder: 
+    knitr,
+    quarto
 Suggests:
     knitr,
     DBI,
     fs,
     rstudioapi,
-    odbc
+    odbc,
+    rmarkdown
 Imports:
     dplyr,
     ggplot2,
     lattice,
     tidyr,
     magrittr
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
+URL: http://rparrish.github.io/RPamisc/

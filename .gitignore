@@ -5,3 +5,5 @@ RPamisc.Rproj
 .Rbuildignore
 deleteme.R
 
+inst/doc
+docs
