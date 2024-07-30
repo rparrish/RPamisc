@@ -3,14 +3,14 @@ title: "sandbox"
 subtitle: "testing"
 ---
 
-```{r, include = FALSE}
+```{r}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 ```
 
-```{r setup}
+```{r}
 library(dplyr)
 library(RPamisc)
 library(ggblanket)
@@ -86,7 +86,7 @@ knitr::kable(methods_table)
 ```
 
 
-```{r histogram}
+```{r}
 demo_data_raw |>  
     gg_histogram(
         x = flipper_length_mm,
