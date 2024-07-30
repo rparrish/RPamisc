@@ -66,6 +66,11 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html" class="external-link">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span></span>
+<span>  collapse <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  comment <span class="op">=</span> <span class="st">"#&gt;"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
@@ -185,7 +190,7 @@
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">demo_data_raw</span> <span class="op">|&gt;</span>  </span>
 <span>    <span class="fu"><a href="https://davidhodge931.github.io/ggblanket/reference/gg_histogram.html" class="external-link">gg_histogram</a></span><span class="op">(</span></span>
 <span>        x <span class="op">=</span> <span class="va">flipper_length_mm</span>,</span>
@@ -197,8 +202,8 @@
 <span><span class="co">#&gt; Scale for <span style="color: #00BB00;">colour</span> is already present.</span></span>
 <span><span class="co">#&gt; Adding another scale for <span style="color: #00BB00;">colour</span>, which will replace the existing scale.</span></span>
 <span><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
-<p><img src="sandbox_files/figure-html/histogram-1.png" width="700"></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<p><img src="sandbox_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">911</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">month</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2024-07-01"</span><span class="op">)</span>, <span class="st">"month"</span><span class="op">)</span></span>
@@ -221,7 +226,7 @@
 <span>        <span class="op">)</span></span>
 <span>    </span>
 <span><span class="op">}</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># method 1</span></span>
 <span><span class="co"># sample of 15/month</span></span>
 <span><span class="va">method_1_data</span> <span class="op">&lt;-</span></span>
@@ -260,8 +265,8 @@
 <span>    <span class="fu">trend_plot</span><span class="op">(</span><span class="op">)</span></span>
 <span>    </span>
 <span><span class="va">p1</span></span></code></pre></div>
-<p><img src="sandbox_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<p><img src="sandbox_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># method 2</span></span>
 <span><span class="co"># sample of 30/month</span></span>
@@ -275,7 +280,7 @@
 <span>    <span class="fu">trend_plot</span><span class="op">(</span>subtitle <span class="op">=</span> <span class="st">"Method 2: sample 30"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#p2 </span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># method 3</span></span>
 <span><span class="co"># sample of 0/month</span></span>
@@ -289,7 +294,7 @@
 <span>    <span class="fu">trend_plot</span><span class="op">(</span>subtitle <span class="op">=</span> <span class="st">"Method 3: sample 50"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#p3</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># method 4</span></span>
 <span><span class="co"># sample of 300/month</span></span>
 <span><span class="va">method_4_data</span> <span class="op">&lt;-</span></span>
@@ -302,7 +307,7 @@
 <span>    <span class="fu">trend_plot</span><span class="op">(</span>subtitle <span class="op">=</span> <span class="st">"Method 4: sample 300"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#p3</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="va">p3</span> <span class="op">+</span> <span class="va">p4</span> <span class="op">+</span> </span>
 <span>     <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span></span>
@@ -313,8 +318,8 @@
 <span>        subtitle <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"Underlying population rate: {scales::percent(demo_data_summary$flipper_rate)}"</span><span class="op">)</span>,</span>
 <span>        tag_levels <span class="op">=</span> <span class="st">"1"</span>, </span>
 <span>        tag_prefix <span class="op">=</span> <span class="st">"Method "</span><span class="op">)</span></span></code></pre></div>
-<p><img src="sandbox_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<p><img src="sandbox_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">results_reactable</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.data</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    </span>
 <span>    <span class="va">.data</span> <span class="op">|&gt;</span></span>
@@ -872,7 +877,7 @@
     </tr></tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">method_2_data</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">results_table</span><span class="op">(</span><span class="va">methods_table</span><span class="op">[</span><span class="fl">2</span>, <span class="op">]</span><span class="op">)</span></span></code></pre></div>
@@ -1390,7 +1395,7 @@
     </tr></tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">method_3_data</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">results_table</span><span class="op">(</span><span class="va">methods_table</span><span class="op">[</span><span class="fl">3</span>, <span class="op">]</span><span class="op">)</span></span></code></pre></div>
@@ -1908,7 +1913,7 @@
     </tr></tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">method_4_data</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">results_table</span><span class="op">(</span><span class="va">methods_table</span><span class="op">[</span><span class="fl">4</span>, <span class="op">]</span><span class="op">)</span></span></code></pre></div>
