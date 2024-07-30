@@ -37,8 +37,8 @@ jobs:
           extra-packages: any::pkgdown, ggblanket, local::., gt, purrr, reactable, patchwork, palmerpenguins, broom
           needs: website
 
-     - name: Set up Quarto
-       uses: quarto-dev/quarto-actions/setup@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
