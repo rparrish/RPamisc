@@ -1,6 +1,8 @@
 ---
 title: "sandbox"
 subtitle: "testing"
+code-fold: true
+code-summary: "Show the code"
 ---
 
 ```{r}
