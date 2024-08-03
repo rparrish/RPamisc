@@ -7,9 +7,9 @@ articles:
 - title: Main verbs
   navbar: ~
   contents:
-  - Sandbox
+  - sandbox
 
 - title: Developer
   desc: Vignettes aimed at package developers
   contents:
-  - Dashboard
+  - dashboard
