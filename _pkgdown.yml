@@ -3,3 +3,13 @@ template:
   bootstrap: 5
   bootswatch: flatly
 
+articles:
+- title: Main verbs
+  navbar: ~
+  contents:
+  - Sandbox
+
+- title: Developer
+  desc: Vignettes aimed at package developers
+  contents:
+  - Dashboard
