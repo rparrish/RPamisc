@@ -3,6 +3,9 @@ template:
   bootstrap: 5
   bootswatch: flatly
 
+project:
+  render: ['*.qmd']
+
 articles:
 - title: Main verbs
   navbar: ~
