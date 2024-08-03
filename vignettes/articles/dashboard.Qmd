@@ -1,6 +1,6 @@
 ---
-title: My first Quarto Dashboard
-subtitle: testing
+title: "My first Quarto Dashboard"
+subtitle: "testing"
 format: dashboard
 ---
 
