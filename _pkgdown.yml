@@ -5,14 +5,13 @@ template:
 
 project:
   render: ['*.qmd']
-
-articles:
-- title: Main verbs
-  navbar: ~
-  contents:
-  - sandbox
-
-- title: Developer
-  desc: Vignettes aimed at package developers
-  contents:
-  - dashboard
+navbar:
+  components:
+    articles:
+      text: New Name for Articles not showing
+      menu:
+      - text: This Text doesn't show
+      - text: Sandbox
+        href: articles/sandbox.html
+      - text: Dashboard
+        href: articles/dashboard.html
