@@ -1,64 +1,298 @@
 ---
-title: "My first Quarto Dashboard"
-subtitle: "testing"
-format: dashboard
+title: "Performance Measures"
+date: today
+fig-width: 10
+fig-asp: 0.3
+format: 
+    dashboard: 
+        embed-resources: true
+        theme: flatly
+        scrolling: false
+        expandable: false
+        nav-buttons:
+         - mastodon 
+         - icon: github
+           href: https://gitlab.com/
 ---
 
-# Page 1
+```{r}
+library(dplyr)
+library(RPamisc)
+library(ggblanket)
+library(glue)
+library(gt)
+library(purrr)
+library(ggplot2)
+library(reactable)
+library(patchwork)
+library(palmerpenguins)
+
+set_blanket()
+
+demo_data_raw <- 
+    penguins |>
+    filter(!is.na(flipper_length_mm)) |>
+    mutate(
+        short_bill_flag = if_else(bill_length_mm < 45, 1, 0),
+        long_bill_flag = if_else(bill_length_mm >= 45, 1, 0),
+        short_flipper_flag = if_else(flipper_length_mm <= 209, 1, 0),
+        long_flipper_flag = if_else(flipper_length_mm > 209, 1, 0)
+        )
+
+demo_data_summary <- 
+    demo_data_raw |>
+    summarise(
+        #.by = c(species),
+        n = n(), 
+        short_bill = sum(short_bill_flag, na.rm = TRUE),
+        long_bill = sum(long_bill_flag, na.rm = TRUE),
+        short_flipper = sum(short_flipper_flag, na.rm = TRUE),
+        long_flipper = sum(long_flipper_flag, na.rm = TRUE)
+    ) |>
+    mutate(
+        bill_rate = round(short_bill/n, 2),
+        flipper_rate = round(short_flipper/n, 2)
+        #rate = round(long_flipper/n, 2)
+    ) 
+     
+demo_aggregate <- function(.data) {
+    
+results <- 
+    .data |>
+    summarise(
+        #.by = c(species),
+        n = n(), 
+        short_bill = sum(short_bill_flag, na.rm = TRUE),
+        long_bill = sum(long_bill_flag, na.rm = TRUE),
+        short_flipper = sum(short_flipper_flag, na.rm = TRUE),
+        long_flipper = sum(long_flipper_flag, na.rm = TRUE)
+    ) %>%
+    mutate(
+        bill_rate = round(short_bill/n, 2),
+        flipper_rate = round(short_flipper/n, 2)
+        #rate = round(long_flipper/n, 2)
+    ) %>%
+    arrange(desc(bill_rate), n)
+
+results
+
+}
+```
+
+
+```{r}
+set.seed(911)
+
+month <- seq(as.Date("2024-01-01"), as.Date("2024-07-01"), "month")
+
+demo_sample <- function(.data, month, size = 15) {
+
+#    https://stackoverflow.com/questions/50977337/calling-prop-test-function-in-r-with-dplyr    
+    .data |>
+        slice_sample(n = size) |>
+        demo_aggregate() |>
+        mutate(month = month, .before = 1) |>
+        mutate(rate = map2(short_flipper, n, ~ prop.test(.x, .y, conf.level=0.95) %>%
+                                     broom::tidy())) %>%
+        tidyr::unnest(rate) %>% 
+        select(
+            month, 
+            n, 
+            short_flipper, 
+            everything()
+        )
+    
+}
+
+```
+
+```{r}
+# method 1
+# sample of 15/month
+method_1_data <-
+    month |>
+    map(~ demo_sample(demo_data_raw, .x, size = 15)) |>
+    bind_rows()
+
+set_blanket()
+
+trend_plot <- function(.data, subtitle = "Method 1: sample 15") {
+    
+    .data |> 
+       gg_pointrange(
+            #subtitle = subtitle,
+            x = month,  
+            y = estimate,
+            ymin = conf.low,
+            ymax = conf.high,
+            x_label = "",
+            y_label = "",
+            #y_label = "% Short Flipper", 
+            y_labels = scales::percent,
+            x_breaks = c(as.Date("2024-01-01"), as.Date("2024-07-01")),
+            y_breaks = c(.2, .4, .6, .8, 1),
+            y_expand_limits = c(.40, 1),
+            #linewidth = 1, 
+            ) +
+        geom_line() +
+        geom_hline(yintercept = .9, linetype = 'dashed') 
+    
+}
+
+```
+
+
+# Huddle Board 
 
 
 ## Sidebar {.sidebar}
 
-```{r}
-print('This is in the side')
-```
+
+_Refresh Date_: `r Sys.Date()`
+
+
+- 30day Standardized Mortality Ratio - (SMR30)  
+: Risk-adjusted Mortalities within 30 days of Acute Care admission, reported as an O/E ratio. Pre-admission Hospice cases are excluded.
+- Cardiovascular Risk Management (CVRM)
+: Composite score based on these components: A, B, C
+- Comprehensive Risk Evaluation (CSRE)
+: Percent of Positive CSSRS that had a timely CSRE (same day in ambulatory, 24 hours in UC and acute care)
 
 ## Main body
 
-### Row 1 {height="70%"}
-
-
-```{r}
-#| width: 70%
-print('Column 1/2')
-```
-
-
-```{r}
-#| height: 50%
-print('Column 2/2')
-```
-
-### Row 2
-
-#### Column 1
+### Row 1 
 
 ```{r}
 #| content: valuebox
-#| title: "Some cool number"
+#| title: "SMR30 O/E"
+#| fig-cap: "caption"
+
+  value = "1.5"
 list(
-  icon = "newspaper",
+  #icon = "graph-down-arrow",
+  color = "light",
+  value = value
+)
+
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "CVRM Composite"
+  
+value = "65%"
+
+list(
+  #icon = "graph-up-arrow",
   color = "danger",
+  value = value 
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Days since last missed CSRE"
+  
+value = "5" 
+
+list(
+  #icon = "check2-square",
+  color = "success",
   value = 5
 )
 ```
 
+### Row 2
+
+#### Column 1 {width=20%}
+
+::: {.card  title="Life Expectancy"}
+
+That value box was created with R
+
+:::
 
 
 #### Column 2
 
-::: {.card}
+```{r}
+#| title: "CVRM"
+#| fig-cap: "This is a caption"
+ 
+demo_data_raw |>  
+    gg_histogram(
+        x = flipper_length_mm,
+        #x = bill_length_mm,
+        col = species,
+        #facet2 = island, 
+        facet = species
+        )
 
-<--- That value box was created with R
+```
+
+### Row 3
+
+
+#### Column 1 {width=20%}
+
+
+::: {.card  title="Life Expectancy"}
+
+__Hello world__  
+
+That value box was created with R
 
 :::
 
+#### Column 2
 
-::: {.card}
+```{r}
+#| title: "CSRE"
 
-<--- That value box was created with Python
+p1 <- 
+    method_1_data |>
+    trend_plot()
+
+p2 <- 
+    method_1_data |>
+    trend_plot()
+
+p1 + p2
+
+```
+
+
+### Row 4 
+
+
+#### Column 1 {width=20%}
+
+
+::: {.card  title="Life Expectancy"}
+
+## Hello world
+
+That value box was created with R
 
 :::
+
+#### Column 2
+
+```{r}
+#| title: "CSRE"
+
+p1 <- 
+    method_1_data |>
+    trend_plot()
+
+p2 <- 
+    method_1_data |>
+    trend_plot()
+
+p1 + p2
+
+```
 
 # Page 2
 
